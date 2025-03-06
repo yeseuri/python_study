@@ -39,4 +39,8 @@ if __name__ == '__main__':
           to_string(
               div(num_1, num_2)
           )
-          )
+    )
+
+    print("=============== distinguish ====================")
+
+    print("num_1 + num_2",sum(num_1, num_2), '100+200', 1500, sep=" = ")
