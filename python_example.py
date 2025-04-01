@@ -356,7 +356,7 @@ if __name__=="__main__":
     타입변환 = int(컴마제거)
     print(타입변환, type(타입변환))
 
-    #039
+    #039 문자열 슬라이싱
     분기 = "2020/03(E) (IFRS연결)"
     #print(분기[0:7]) -> 내가 푼 거
     print(분기[:7])
@@ -364,3 +364,110 @@ if __name__=="__main__":
     #040 strip 메서드
     data = "    삼성전자    "
     print(data.strip())
+    # 이 경우 strip() 메서드를 사용하면 좌우 공백을 제거할 수 있습니다. 이때
+    # 원본 문자열은 그대로 유지되고 공백이 제거된 새로운 문자열이 반환됩니다
+    data1 = data.strip()
+    print(data1)
+
+    # 초보자를 위한 파이썬 300제
+    # 03. 파이썬 문자열 041 ~ 050
+
+    #041 upper 메서드
+    ticker = "btc_krw"
+    print(ticker.upper())
+    print(ticker)
+    # upper 메서드를 호출하면 이 경우 원본 문자열은 유지되고 대문자로 변경된 새로운 문자열 객체가 반환
+    # 되는 겁니다 반환된 새로운 객체를 새로운 변수로 바인딩한 후 이를 print 함수로
+    # 출력하면 됩니다.
+    ticker1 = ticker.upper()
+    print(ticker1)
+
+    #042 lower 메서드
+    # 이 경우도 원본 문자열은 유지되고 대문자로 변경된 새로운 문자열 객체가
+    # 반환됩니다
+    ticker = "BTC_KRW"
+    ticker1 = ticker.lower()
+    print(ticker1)
+
+    #043 capitalize 메서드
+    # 이 경우도 원본 문자열은 유지되고 문자열의 첫 글자를 대문자로 변환하고,
+    # 나머지 문자는 소문자로 변환합니다
+    hello = "hello"
+    hello1 = hello.capitalize()
+    print(hello1)
+    print(hello)
+
+    #044 endswith 메서드
+    # 이 경우 파일 이름이 문자열로 저장되어 있을때 마지막 문자열이 일치하는지
+    # 확인하고 true, false로 반환한다
+    file_name = "보고서.xlsx"
+    file_name1 = file_name.endswith("xlsx")
+    print(file_name1)
+    print(file_name)
+
+    #045 endswith 메서드
+    # 파일 이름이 문자열로 저장되어 있을 때 endswith 메서드를 사용해서 파일 이름이
+    # 'xlsx' 또는 'xls'로 끝나는지 True/False 로 확인하기
+    file_name = "보고서.xlsx"
+    file_name1 = file_name.endswith(("xlsx", "xls"))
+    print(file_name1)
+
+    # startswith의 응용
+    # 해당 리스트의 원소들이 각각 'L'로 시작하는지 여부를 True/False로 표시하기
+    name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
+    list = []
+    for i in name_list:
+        s = i.startswith('L')
+        list.append(s)
+    print(s)
+    print(list)
+
+    # test 중 test_list에서 마지막에 오는 단어를 기준으로 True, False를 반환함
+    test_list = ['Love', 'Yeseul', 'Linda']
+    for i in test_list:
+        a = i.startswith('L')
+
+    print(a)
+    # append 메소드: 리스트에 요소를 추가하는 메소드로 리스트 마지막에
+    # 순차적으로 요소를 추가
+
+    name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
+    list = []
+    for i in name_list:
+        if i.startswith('L') == True:
+            list.append(i)
+
+    print(list)
+
+    #046 startswith 메서드
+    file_name = "2020_보고서.xlsx"
+    print(file_name.startswith('2020'))
+
+    #047 split 메서드
+    #문자열이 있을때 공백을 기준으로 문자열을 분리해줍니다(배열안에 담아줌)
+    a = "hello world"
+    print(a.split())
+
+    #048 split 메서드
+    # split 메서드는 문자열을 분리할 때 사용합니다. 이때 어떤 값을 넘겨주면
+    # 그 값을 기준으로 문자열을 분리해줍니다.
+    ticker = "btc_krw"
+    print(ticker.split("_"))
+
+    #049 split 메서드
+    date = "2020-05-01"
+    date1 = date.split("-")
+    print(date1)
+
+    #050 rstrip 메서드
+    # rstrip() 메서드를 사용하면 오른쪾 공백이 제거된 새로운 문자열 객체가 반환됩니다.
+    # 그 값을 data라는 변수가 새로 바인딩합니다. 기존의 공백이 포함된 문자열은
+    # 메모리에서 자동으로 삭제됩니다
+    data = "039490      "
+    data2 = data.rstrip()
+    data1 = "      039490"
+    print(data.rstrip()) #공백없음 ->  이때 data에 주소(메모리에 할당된 주소 id)가 공백있는 data에서 공백없는 data로 덮어쓰기 된다
+    print(data1.rstrip()) #왼쪽 공백있음
+    print(data) #공백있음
+    print(data2) #공백없음
+    print(data) #공백있음
