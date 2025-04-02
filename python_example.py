@@ -102,7 +102,7 @@ if __name__=="__main__":
     print(총금액)
 
     #03. 파이썬 문자열 021 ~ 030
-    #021
+    #021 문자 인덱싱
     #이건 첫번째 문자 세번째 문자를 출력하는 방법이 아니네...
     print("{0}월 {1}일 입니다. {2}월 {3}일 입니다. {4}월 {5}일 입니다".format(10,31,12,3,7,"안녕하세요"))
 
@@ -116,14 +116,14 @@ if __name__=="__main__":
 
     letters = 'python'
     print(letters[0], letters[2])
-    #022
+    #022 문자열 슬라이싱
     license_place = "24가 2210"
     print(license_place[4:8])
     #let result = "Hello world"
     #console.log(result.slice(2, -1))
     print(license_place[4],license_place[5],license_place[6],license_place[7])
 
-    #023
+    #023 문자열 인덱싱
     #파이썬 슬라이싱 a[start:end:step] step:보폭
     string = "홀짝홀짝홀짝"
     print(string[0], string[2], string[4], sep="")
@@ -131,6 +131,7 @@ if __name__=="__main__":
     print(string[::-1])
     print(string[::1])
     print(string[::3])
+    print(string[0:5:3]) #0번 인덱스부터 5번 인덱스까지 3칸씩 건너뛰면서 추출
 
     #024
     #궁금한점 왜 string이라는 변수를 023번에서도 썼는데 또 쓸수 있어? 파이썬은 변수를 또 사용할수 있지만
@@ -153,9 +154,9 @@ if __name__=="__main__":
 
     #027
     url = "http://sharebook.kr"
-    print(url[-2::])
+    print(url[-2::]) #-2번 인텍스부터 끝까지
 
-    #튜블의 패킹과 언패킹
+    #튜플의 패킹과 언패킹
     def sum(*nums) :  # 전달되는 모든 값들을 하나의 튜플로 묶어서 nums에 저장
         s = 0
         for i in nums:
@@ -233,7 +234,8 @@ if __name__=="__main__":
     #030
     #aBcd가 출력되지않는 이유는 문자열을 변경할 수 없는 자료형이기 때문이다
     string = 'abcd'
-    string.replace('b','B')
+    string1 = string.replace('b','B')
+    print(string1) #string1이라는 변수에 담아야지 변경할수 있다 원본이 유지됨
     print(string)
 
     # 초보자를 위한 파이썬 300제
@@ -255,6 +257,11 @@ if __name__=="__main__":
     b = 3.2  # 실수
     result = a + b
     print(result)
+
+    # a = "안녕"
+    # b = 2.5
+    # result = a + b
+    # print(result) 타입에러가 뜬다 문자열과 실수는 연결할수 없다고 한다
 
     # 파이썬 숫자와 문자열 기초
     # https://wikidocs.net/26718
@@ -289,9 +296,9 @@ if __name__=="__main__":
     print(   100   +   3   )
     # print 함수에 100+3 파라미터를 입력한 결과 103이라는 값이 출력되었다.
     # 명령 프롬프트에서 스파이더 콘솔을 불러올수 있는데 거기선 print 함수를 사용하지 않고
-    # 출력할 수 있지만 그외 화면에 값을 출려기하는 FM적인 방법은 print 함수를 사용하는 것입니다
+    # 출력할 수 있지만 그외 화면에 값을 출력하는 FM적인 방법은 print 함수를 사용하는 것입니다
 
-    # type() 함수는 값의 조아류를 판별합니다
+    # type() 함수는 값의 종류를 판별합니다
     # len() 함수는 문자열의 길이를 구하는 함수입니다
     len("123456")
     print(len("123456"))
@@ -324,9 +331,9 @@ if __name__=="__main__":
     t2 = "java"
     print( (t1 + " " + t2 + " ") * 4 )
 
-    #035
+    #035 문자열 출력
     # "%s %s %s %d"%.format("이름:", "김민수", "나이:", 10) -> 내가 푼 거
-    # "{1} {2} {3} {4}".format("이름:", "김민수", "나이:", 10) -> 내가 푼 거
+
     # 내가 푼 거
     name1 = "김민수"
     age1 = 10
@@ -335,11 +342,13 @@ if __name__=="__main__":
     print("이름: %s 나이: %d"%(name1, age1))
     print("이름: %s 나이: %d"%(name2, age2))
 
-    #036
+    #036 문자열 출력
+    #{} 중괄호가 비어도 되지만 {0}숫자를 넣을때 꼭 0부터 넣어야함
+    print("{0} {1} {2} {3}".format("이름:", "김민수", "나이:", 10))
     print("이름: {} 나이: {}".format(name1, age1))
     print("이름: {0} 나이: {1}".format("김민수", 10))
 
-    #037
+    #037 문자열 출력 f-string을 사용해서 풀어보세요
     result = f'이름: {name1} 나이: {age1}'
     print(result)
     
@@ -471,3 +480,9 @@ if __name__=="__main__":
     print(data) #공백있음
     print(data2) #공백없음
     print(data) #공백있음
+
+    # 초보자를 위한 파이썬 300제
+    # 04. 파이썬 리스트 051 ~ 060
+
+    #051 리스트 생성
+
