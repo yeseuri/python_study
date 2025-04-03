@@ -25,10 +25,10 @@ if __name__=="__main__":
 
     #011
     삼성전자 = 50000
-    def sum(a) :
+    def function_sum(a) :
         return str(a * 10) + "원"
 
-    print(sum(삼성전자))
+    print(function_sum(삼성전자))
 
     #012
     # 시가총액 = "298조"
@@ -157,16 +157,16 @@ if __name__=="__main__":
     print(url[-2::]) #-2번 인텍스부터 끝까지
 
     #튜플의 패킹과 언패킹
-    def sum(*nums) :  # 전달되는 모든 값들을 하나의 튜플로 묶어서 nums에 저장
+    def function_sum(*nums) :  # 전달되는 모든 값들을 하나의 튜플로 묶어서 nums에 저장
         s = 0
         for i in nums:
             s += i
         return s, nums
 
 
-    print(sum(1, 2, 3))
-    print(sum(1, 2, 3, 4))
-    print(sum(1, 2, 3, 4, 5))
+    print(function_sum(1, 2, 3))
+    print(function_sum(1, 2, 3, 4))
+    print(function_sum(1, 2, 3, 4, 5))
 
     #패킹 :  묶기, 언패킹 : 풀기
     #튜플에 저장된 값을 꺼내는 행위를 "튜플 언패킹"이라한다
@@ -485,4 +485,52 @@ if __name__=="__main__":
     # 04. 파이썬 리스트 051 ~ 060
 
     #051 리스트 생성
+    movie_rank = ["닥터 스트레인지", "스플릿", "럭키"]
+
+    #052 리스트에 원소 추가
+    # movie_rank1 = movie_rank.append("베트맨")
+    # 변수에 넣는건 안됨 문자열은 변경할 수 없는 자료형이기 때문이다
+    movie_rank.append("베트맨")
+    print(movie_rank)
+
+    #053
+    movie_rank.insert(1, "슈퍼맨")
+    print(movie_rank)
+
+    #054
+    movie_rank.remove("럭키")
+    print(movie_rank)
+
+    #055
+    del movie_rank[2]
+    del movie_rank[2]
+    print(movie_rank)
+
+    #056
+    lang1 = ["C", "C++", "JAVA"]
+    lang2 = ["Python", "Go", "C#"]
+    langs = lang1 + lang2
+    print(langs)
+
+    #057
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    print("max : ", max(nums))
+    print("min : ", min(nums))
+
+    #058
+    nums = [1, 2, 3, 4, 5]
+    result = sum(nums)
+    print(result)
+
+    #059
+    # 중복도 포함
+    cook = ["피자", "김밥", "만두", "양념치킨", "족발", "피자", "김치만두", "쫄면", "소시지", "라면", "팥빙수", "김치전"]
+    print(len(cook))
+
+    #060
+    nums = [1, 2, 3, 4, 5]
+    result = sum(nums) / len(nums)
+    print(result)
+
+    #061
 
