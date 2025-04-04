@@ -25,10 +25,10 @@ if __name__=="__main__":
 
     #011
     삼성전자 = 50000
-    def sum(a) :
+    def function_sum(a) :
         return str(a * 10) + "원"
 
-    print(sum(삼성전자))
+    print(function_sum(삼성전자))
 
     #012
     # 시가총액 = "298조"
@@ -102,7 +102,7 @@ if __name__=="__main__":
     print(총금액)
 
     #03. 파이썬 문자열 021 ~ 030
-    #021
+    #021 문자 인덱싱
     #이건 첫번째 문자 세번째 문자를 출력하는 방법이 아니네...
     print("{0}월 {1}일 입니다. {2}월 {3}일 입니다. {4}월 {5}일 입니다".format(10,31,12,3,7,"안녕하세요"))
 
@@ -116,21 +116,21 @@ if __name__=="__main__":
 
     letters = 'python'
     print(letters[0], letters[2])
-    #022
+    #022 문자열 슬라이싱
     license_place = "24가 2210"
     print(license_place[4:8])
     #let result = "Hello world"
     #console.log(result.slice(2, -1))
     print(license_place[4],license_place[5],license_place[6],license_place[7])
 
-    #023
+    #023 문자열 인덱싱
     #파이썬 슬라이싱 a[start:end:step] step:보폭
     string = "홀짝홀짝홀짝"
     print(string[0], string[2], string[4], sep="")
     print(string[::2])
     print(string[::-1])
     print(string[::1])
-    print(string[::3])
+    print(string[0:5:3]) #0번 인덱스부터 5번 인덱스까지 3칸씩 건너뛰면서 추출
 
     #024
     #궁금한점 왜 string이라는 변수를 023번에서도 썼는데 또 쓸수 있어? 파이썬은 변수를 또 사용할수 있지만
@@ -153,25 +153,33 @@ if __name__=="__main__":
 
     #027
     url = "http://sharebook.kr"
-    print(url[-2::])
+    print(url[-2::]) #-2번 인텍스부터 끝까지
 
     #튜블의 패킹과 언패킹
-    def sum(*nums) :  # 전달되는 모든 값들을 하나의 튜플로 묶어서 nums에 저장
+    def function_sum(*nums) :  # 전달되는 모든 값들을 하나의 튜플로 묶어서 nums에 저장
         s = 0
         for i in nums:
             s += i
         return s, nums
 
 
-    print(sum(1, 2, 3))
-    print(sum(1, 2, 3, 4))
-    print(sum(1, 2, 3, 4, 5))
+    print(function_sum(1, 2, 3))
+    print(function_sum(1, 2, 3, 4))
+    print(function_sum(1, 2, 3, 4, 5))
 
     #패킹 :  묶기, 언패킹 : 풀기
     #튜플에 저장된 값을 꺼내는 행위를 "튜플 언패킹"이라한다
     tri_one = (12, 15)
     bt, ht = tri_one #튜플 언패킹
     print(bt, ht)
+
+    # 튜플 패킹
+    tri_one = (12, 15)  # 밑변 길이 12와 높이 길이 15를 묶어 놓은 것
+    # tri_one = 12, 15 이렇게 소괄호 생략할 수도 있다.
+    tri_two = 12, 15
+    print(tri_one)
+    print(tri_two)
+
 
     #튜플을 언패킹 하더라도 *로 묶어서 푼 경우 리스트로 묶인 것을 확인할 수 있다
     nums = (1,2,3,4,5)
@@ -227,6 +235,8 @@ if __name__=="__main__":
     #aBcd가 출력되지않는 이유는 문자열을 변경할 수 없는 자료형이기 때문이다
     string = 'abcd'
     string.replace('b','B')
+    string1 = string.replace('b','B')
+    print(string1) #string1이라는 변수에 담아야지 변경할수 있다 원본이 유지됨
     print(string)
 
     # 초보자를 위한 파이썬 300제
@@ -249,10 +259,282 @@ if __name__=="__main__":
     result = a + b
     print(result)
 
+    # a = "안녕"
+    # b = 2.5
+    # result = a + b
+    # print(result) 타입에러가 뜬다 문자열과 실수는 연결할수 없다고 한다
 
+    # 파이썬 숫자와 문자열 기초
+    # https://wikidocs.net/26718
+    # a = 아이유가 부릅니다 "삐삐" 는 문법에러 입니다
+    b = '아이유가 부릅니다 "삐삐"'
+    c = "I'm a doy"
+    print(b)
+    print(c)
 
+    # 파이썬에서의 "숫자"는 천단위 구분기호 없이 오로지 숫자로만 구성된 데이터입니다.
+    # a = 2025/03/31 는 문법에러 입니다
+    # 1000.0은 실수입니다
 
+    # 사칙연산에는 연산자 우선 순위가 적용되어 덧셈, 뺄셈 보다는 곱셈, 나눗셈이 우선합니다
+    # 연산자 우선순위가 헷갈린다면 괄호를 사용해서 가독성을 높일 수 있습니다
+    a = 10 + (2 * 3)
+    print(a)
 
+    # 파이썬 문자열은 덧셈과 곱셈을 지원합니다. 두개의 문자열을 더하면 문자열이 이어 붙어
+    # 하나의 새로운 문자열을 만듭니다
+    a = "안녕" + "하세요"
+    print(a)
+    # 곱셈은 곱한 숫자만큼 문자열을 반복해서 이어 붙입니다
+    b = "안녕" * 3
+    print(b)
+
+    # 내장 함수
+    # 함수이름() -> 함수 호출 방법
+    # print(   100   +   3   ) -> 코드를 작성할때 코드 중간에 포함되는 공백은 결과에 아무런 영향을
+    # 미치지 않습니다
+    # print 함수 괄호안에 들어가는 값을 함수의 입력이라고 부르며, 다른 말로 파라미터라고 부릅니다
+    print(      100    +    3      )
+    # print 함수에 100+3 파라미터를 입력한 결과 103이라는 값이 출력되었다.
+    # 명령 프롬프트에서 스파이더 콘솔을 불러올수 있는데 거기선 print 함수를 사용하지 않고
+    # 출력할 수 있지만 그외 화면에 값을 출력하는 FM적인 방법은 print 함수를 사용하는 것입니다
+
+    # type() 함수는 값의 종류를 판별합니다
+    # len() 함수는 문자열의 길이를 구하는 함수입니다
+    len("123456")
+    print(len("123456"))
+
+    # 형변환 함수
+    # 숫자/문자열과 같은 데이터의 타입을 변경하는 것을 형변환이라고 합니다.
+    # 다음과 같이 데이터 타입이 다른 값에 연산을 적용할 경우 파이썬 인터프리터는 이상하다고 판단하여
+    # 에러를 발생합니다
+    # a = "1000" + 500
+    # 숫자간의 덧셈을 하고 싶으면 문자열을 숫자로 변경한 후에 덧셈 연산을 적용해야 합니다
+    print(int("1000") + 500)
+    # 실수를 정수로 변환하면 올림/반올림/버림 중에서 어떻게 될까요?
+    print(int(10.7))
+    # 실수를 정수로 형변환하면 소수점 이하는 버려지는 것을 확인할 수 있습니다.
+
+    # 앞에 770000 * 3 주식만 10% 상승으로 장을 마감할 경우 전체 평가 금액을 출력하여라
+    # 내가 푼 것
+    print(((770000 * 3 * int(0.1) + 292000 * 4 + 38350 * 4)))
+    # 정답)
+    print(770000 * 3 * 1.1 + 292000 * 4 + 38350 * 4)
+
+    # 032
+    print("Hi" * 3)
+
+    # 033
+    print("-" * 80)
+
+    # 034
+    t1 = "python"
+    t2 = "java"
+    print((t1 + " " + t2 + " ") * 4)
+
+    # 035
+    # "%s %s %s %d"%.format("이름:", "김민수", "나이:", 10) -> 내가 푼 거
+    # "{1} {2} {3} {4}".format("이름:", "김민수", "나이:", 10) -> 내가 푼 거
+    # 내가 푼 거
+    name1 = "김민수"
+    age1 = 10
+    name2 = "이철희"
+    age2 = 13
+    print("이름: %s 나이: %d" % (name1, age1))
+    print("이름: %s 나이: %d" % (name2, age2))
+
+    # 036 문자열 출력
+    #{} 중괄호가 비어도 되지만 {0}숫자를 넣을때 꼭 0부터 넣어야함
+    print("{0} {1} {2} {3}".format("이름:", "김민수", "나이:", 10))
+    print("이름: {} 나이: {}".format(name1, age1))
+    print("이름: {0} 나이: {1}".format("김민수", 10))
+
+    # 037 문자열 출력 f-string을 사용해서 풀어보세요
+    result = f'이름: {name1} 나이: {age1}'
+    print(result)
+
+    # 038 컴마 제거 하기
+    상장주식수 = "5,969,782,550"
+
+    # 내가 푼 거
+    # def sum(*p) :
+    #   return int(p)
+
+    # print(sum(상장주식수))
+
+    컴마제거 = 상장주식수.replace(",", "")
+    타입변환 = int(컴마제거)
+    print(타입변환, type(타입변환))
+
+    # 039
+    분기 = "2020/03(E) (IFRS연결)"
+    # print(분기[0:7]) -> 내가 푼 거
+    print(분기[:7])
+
+    # 040 strip 메서드
+    data = "    삼성전자    "
+    print(data.strip())
+
+    # 이 경우 strip() 메서드를 사용하면 좌우 공백을 제거할 수 있습니다. 이때
+    # 원본 문자열은 그대로 유지되고 공백이 제거된 새로운 문자열이 반환됩니다
+    data1 = data.strip()
+    print(data1)
+
+    # 초보자를 위한 파이썬 300제
+    # 03. 파이썬 문자열 041 ~ 050
+
+    # 041 upper 메서드
+    ticker = "btc_krw"
+    print(ticker.upper())
+    print(ticker)
+    # upper 메서드를 호출하면 이 경우 원본 문자열은 유지되고 대문자로 변경된 새로운 문자열 객체가 반환
+    # 되는 겁니다 반환된 새로운 객체를 새로운 변수로 바인딩한 후 이를 print 함수로
+    # 출력하면 됩니다.
+    ticker1 = ticker.upper()
+    print(ticker1)
+
+    # 042 lower 메서드
+    # 이 경우도 원본 문자열은 유지되고 대문자로 변경된 새로운 문자열 객체가
+    # 반환됩니다
+    ticker = "BTC_KRW"
+    ticker1 = ticker.lower()
+    print(ticker1)
+
+    # 043 capitalize 메서드
+    # 이 경우도 원본 문자열은 유지되고 문자열의 첫 글자를 대문자로 변환하고,
+    # 나머지 문자는 소문자로 변환합니다
+    hello = "hello"
+    hello1 = hello.capitalize()
+    print(hello1)
+    print(hello)
+
+    # 044 endswith 메서드
+    # 이 경우 파일 이름이 문자열로 저장되어 있을때 마지막 문자열이 일치하는지
+    # 확인하고 true, false로 반환한다
+    file_name = "보고서.xlsx"
+    file_name1 = file_name.endswith("xlsx")
+    print(file_name1)
+    print(file_name)
+
+    # 045 endswith 메서드
+    # 파일 이름이 문자열로 저장되어 있을 때 endswith 메서드를 사용해서 파일 이름이
+    # 'xlsx' 또는 'xls'로 끝나는지 True/False 로 확인하기
+    file_name = "보고서.xlsx"
+    file_name1 = file_name.endswith(("xlsx", "xls"))
+    print(file_name1)
+
+    # startswith의 응용
+    # 해당 리스트의 원소들이 각각 'L'로 시작하는지 여부를 True/False로 표시하기
+    name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
+    list = []
+    for i in name_list:
+        s = i.startswith('L')
+        list.append(s)
+    print(s)
+    print(list)
+
+    # test 중 test_list에서 마지막에 오는 단어를 기준으로 True, False를 반환함
+    test_list = ['Love', 'Yeseul', 'Linda']
+    for i in test_list:
+        a = i.startswith('L')
+
+    print(a)
+    # append 메소드: 리스트에 요소를 추가하는 메소드로 리스트 마지막에
+    # 순차적으로 요소를 추가
+
+    name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
+    list = []
+    for i in name_list:
+        if i.startswith('L') == True:
+            list.append(i)
+
+    print(list)
+
+    # 046 startswith 메서드
+    file_name = "2020_보고서.xlsx"
+    print(file_name.startswith('2020'))
+
+    # 047 split 메서드
+    # 문자열이 있을때 공백을 기준으로 문자열을 분리해줍니다(배열안에 담아줌)
+    a = "hello world"
+    print(a.split())
+
+    # 048 split 메서드
+    # split 메서드는 문자열을 분리할 때 사용합니다. 이때 어떤 값을 넘겨주면
+    # 그 값을 기준으로 문자열을 분리해줍니다.
+    ticker = "btc_krw"
+    print(ticker.split("_"))
+
+    # 049 split 메서드
+    date = "2020-05-01"
+    date1 = date.split("-")
+    print(date1)
+
+    # 050 rstrip 메서드
+    # rstrip() 메서드를 사용하면 오른쪾 공백이 제거된 새로운 문자열 객체가 반환됩니다.
+    # 그 값을 data라는 변수가 새로 바인딩합니다. 기존의 공백이 포함된 문자열은
+    # 메모리에서 자동으로 삭제됩니다
+    data = "039490      "
+    data2 = data.rstrip()
+    data1 = "      039490"
+    print(data.rstrip())  # 공백없음 ->  이때 data에 주소(메모리에 할당된 주소 id)가 공백있는 data에서 공백없는 data로 덮어쓰기 된다
+    print(data1.rstrip())  # 왼쪽 공백있음
+    print(data)  # 공백있음
+    print(data2)  # 공백없음
+    print(data)  # 공백있음
+
+    # 초보자를 위한 파이썬 300제
+    # 04. 파이썬 리스트 051 ~ 060
+
+    # 051 리스트 생성
+    movie_rank = ["닥터 스트레인지", "스플릿", "럭키"]
+
+    # 052 리스트에 원소 추가
+    # movie_rank1 = movie_rank.append("베트맨")
+    # 변수에 넣는건 안됨 문자열은 변경할 수 없는 자료형이기 때문이다
+    movie_rank.append("베트맨")
+    print(movie_rank)
+
+    # 053
+    movie_rank.insert(1, "슈퍼맨")
+    print(movie_rank)
+
+    # 054
+    movie_rank.remove("럭키")
+    print(movie_rank)
+
+    # 055
+    del movie_rank[2]
+    del movie_rank[2]
+    print(movie_rank)
+
+    # 056
+    lang1 = ["C", "C++", "JAVA"]
+    lang2 = ["Python", "Go", "C#"]
+    langs = lang1 + lang2
+    print(langs)
+
+    # 057
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    print("max : ", max(nums))
+    print("min : ", min(nums))
+
+    # 058
+    nums = [1, 2, 3, 4, 5]
+    result = sum(nums)
+    print(result)
+
+    # 059
+    # 중복도 포함
+    cook = ["피자", "김밥", "만두", "양념치킨", "족발", "피자", "김치만두", "쫄면", "소시지", "라면", "팥빙수", "김치전"]
+    print(len(cook))
+
+    # 060
+    nums = [1, 2, 3, 4, 5]
+    result = sum(nums) / len(nums)
+    print(result)
+
+    # 061
 
 
 
