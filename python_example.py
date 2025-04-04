@@ -500,9 +500,16 @@ if __name__=="__main__":
     #054
     movie_rank.remove("럭키")
     print(movie_rank)
+    # remove를 사용하거나 del로 인덱스 번호를 지정해서 지울수 있다
+    # del movie_rank[3]
+    # print(movie_rank)
+
 
     #055
+    # movie_rank 리스트에서 '스플릿'과 '베트맨'을 삭제하라
+    # '스플릿' 삭제
     del movie_rank[2]
+    # '베트맨' 삭제, 스플릿 자리에 베트맨이 왔다
     del movie_rank[2]
     print(movie_rank)
 
@@ -533,4 +540,64 @@ if __name__=="__main__":
     print(result)
 
     #061
+    # 날짜 정보를 제외하고 가격 정보만을 출력하라
+    price = ['20180728', 100, 130, 140, 150, 160, 170]
+    print(price[1:])
+
+    #062
+    # 슬라이싱을 사용해서 홀수만 출력하라
+    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(nums[::2])
+
+    #063
+    # 슬라이싱을 사용해서 짝수만 출력하라
+    print(nums[1::2])
+
+    #064
+    # 슬라이싱을 사용해서 리스트의 숫자를 역 방향으로 출력하라
+    nums = [1, 2, 3, 4, 5]
+    print(nums[::-1])
+
+    #065
+    # interest 리스트를 다음과 같이 출력하라
+    # 삼성전자 naver
+    # 작은 따옴표는 문자열을 뜻하는건데 replace로 작은 따옴표를 없애려고 했음
+    interest = ['삼성전자', 'LG전자', 'Naver']
+    print(interest[0], interest[2])
+
+    #066 join메서드
+    interest = ['삼성전자', 'LG전자', 'Naver', 'SK하이닉스', '미래에셋대우']
+    # ''.join(리스트) - ['a', 'b', 'c'] 이런식의 리스트를 'abc'의 문자열로 합쳐서 변환해주는 함수인 것이다
+    # '구분자'.join(리스트) - '_'join(['a', 'b', 'c'])는 'a_b_c'의 문자열로 반환
+    # 이건 '삼성전자LG전자NaverSK하이닉스미래에셋대우'
+    print("".join(interest))
+    # 이건 '삼성전자 LG전자 Naver SK하이닉스 미래에셋대우'
+    print(" ".join(interest))
+
+    #067 join 메서드
+    print('/'.join(interest))
+
+    #068 join 메서드
+    print('\n'.join(interest))
+
+    #069 문자열 split 메서드
+    # 문자열.split 함수는 문자열을 일정한 규칙으로 잘라서 리스트로 만들어 주는 함수
+    string = "삼성전자/LG전자/Naver"
+    interest = string.split('/')
+    print(interest)
+    # 이거 중요
+    print(string.split())
+    string1 = "삼성전자 LG전자 Naver"
+    print(string1.split())
+
+    #070 리스트 정렬
+    # 리스트 자체를 정렬시켜 버리는 것은 sort함수
+    # 새로운 정렬된 리스트를 반환하는 함수는 sorted 함수
+    data = [2, 4, 3, 1, 5, 10, 9]
+    data.sort()
+    print(data)
+    data1 = sorted(data)
+    print(data1)
+
+
 
