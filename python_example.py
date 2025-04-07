@@ -47,7 +47,10 @@ if __name__=="__main__":
     #013
     s = "hello"
     t = "python"
+    n = 5
     print(s + "!", t)
+    # 근데 같은 문자열이 아닌 n을 적어도 나오네.. 아 +, *가 아니니까!
+    print(s + "!", t, n)
     # 궁금한점 str은 문자열인데 왜 괄호안에 ""를 해줘야해? str()안에 함수는 ""없이 그냥 쓰잖아 함수일떄 쓰는게 str()이야?
     print(s + str("!"), t)
     print(s + str("b"), t)
@@ -105,7 +108,8 @@ if __name__=="__main__":
     #021 문자 인덱싱
     #이건 첫번째 문자 세번째 문자를 출력하는 방법이 아니네...
     print("{0}월 {1}일 입니다. {2}월 {3}일 입니다. {4}월 {5}일 입니다".format(10,31,12,3,7,"안녕하세요"))
-
+    a = "{0}월 {1}일 입니다. {2}월 {3}일 입니다. {4}월 {5}일 입니다".format(10,31,12,3,7,"안녕하세요")
+    print(a, type(a))
     print("| {0:<10} | {1:<5} |".format("왼쪽 10칸", "왼쪽 5칸"))
     print("| {0:>10} | {1:>5} |".format("오른쪽 10칸", "오른쪽 5칸"))
     print("| {0:^10} | {1:^5} |".format("가운데 10칸", "가운데 5칸"))
@@ -130,6 +134,9 @@ if __name__=="__main__":
     print(string[::2])
     print(string[::-1])
     print(string[::1])
+    print(string[::3])
+    string = "가나다라마바"
+    # 인덱스[0]부터함
     print(string[::3])
     print(string[0:5:3]) #0번 인덱스부터 5번 인덱스까지 3칸씩 건너뛰면서 추출
 
@@ -182,8 +189,9 @@ if __name__=="__main__":
     print(tri_two)
 
     #튜플을 언패킹 하더라도 *로 묶어서 푼 경우 리스트로 묶인 것을 확인할 수 있다
+    #궁금한점 위에 sum함수에서는 *로 묶었는데 *nums가 튜플로나옴..
     nums = (1,2,3,4,5)
-    n1,n2, *others = nums
+    n1,n2, *others = nums #튜플의 언패킹
     print(n1)
     print(n2)
     print(others)
@@ -197,6 +205,7 @@ if __name__=="__main__":
 
     p = ['park', 21, 177]
     show_man(*p)
+    # show_man함수에 return이란 글씨가 없어도 print됨
 
     t = (1, 2,(3, 4))
     a,b,(c,d) = t
@@ -209,7 +218,12 @@ if __name__=="__main__":
     name,(_, height),_,_= p
     print(name, height)
 
+    # name,( , height), , = p
+    # print(name, height)
+    #공백은 안되고 _를 사용해야한다
+
     # for문 예시 메모장에서 링크, for문 시작할때 보기 (25.03.30)
+    #생략 나중에 for문 들어가서 고민하기
     # for (i = 0; i<rows.length; i++) {
     #     var obj = {
     #         patternId: Id,
@@ -230,6 +244,7 @@ if __name__=="__main__":
     string = 'abcdfe2a354a32a'
     string_1 = string.replace('a', 'A')
     print(string_1)
+    print(string)
 
     #030
     #aBcd가 출력되지않는 이유는 문자열을 변경할 수 없는 자료형이기 때문이다
@@ -241,6 +256,7 @@ if __name__=="__main__":
     # 초보자를 위한 파이썬 300제
     # 03. 파이썬 문자열 031 ~ 040
     #031
+    # type Error가 뜸
     # a = "3"
     # b = 4
     # c = a + b
@@ -256,7 +272,8 @@ if __name__=="__main__":
     a = 5  # 정수
     b = 3.2  # 실수
     result = a + b
-    print(result)
+    print(result, type(result))
+
 
     # a = "안녕"
     # b = 2.5
@@ -268,8 +285,11 @@ if __name__=="__main__":
     #a = 아이유가 부릅니다 "삐삐" 는 문법에러 입니다
     b = '아이유가 부릅니다 "삐삐"'
     c = "I'm a doy"
+    # 문법오류 SyntaxError
+    # d = I'm a doy
     print(b)
     print(c)
+    # print(d)
 
     #파이썬에서의 "숫자"는 천단위 구분기호 없이 오로지 숫자로만 구성된 데이터입니다.
     #a = 2025/03/31 는 문법에러 입니다
@@ -341,25 +361,43 @@ if __name__=="__main__":
     age2 = 13
     print("이름: %s 나이: %d"%(name1, age1))
     print("이름: %s 나이: %d"%(name2, age2))
+    # 밑에꺼 타입 str
+    a = "이름: %s 나이: %d"%(name2, age2)
+    print(a, type(a))
 
     #036 문자열 출력
-    #{} 중괄호가 비어도 되지만 {0}숫자를 넣을때 꼭 0부터 넣어야함
+    #{} 중괄호가 비어도 되지만 {}숫자를 넣을때 꼭 0부터 넣어야함
     print("{0} {1} {2} {3}".format("이름:", "김민수", "나이:", 10))
     print("이름: {} 나이: {}".format(name1, age1))
     print("이름: {0} 나이: {1}".format("김민수", 10))
+    # 밑에꺼 타입 str
+    a = "이름: {0} 나이: {1}".format("김민수", 10)
+    print(a, type(a))
 
     #037 문자열 출력 f-string을 사용해서 풀어보세요
+    # f-string 은 파이썬 버전 3.6부터 할수있는 기능입니다
+    # f-string은 f와 {}만 알면됩니다 문자열 맨앞에 f를 붙여주고 중괄호 안에
+    # 직접 변수이름이나 출력 하고 싶은것을 바로 넣으면 됩니다
+    # f'문자열 {변수} 문자열'
+    # 밑에꺼 타입 str
     result = f'이름: {name1} 나이: {age1}'
-    print(result)
+    result1 = f'{name1}'
+    result2 = f'123{name1}'
+    print(result, type(result))
+    print(result1, type(result1))
+    print(result2, type(result2))
+    print(name1, type(name1))
     
     #038 컴마 제거 하기
     상장주식수 = "5,969,782,550"
 
     #내가 푼 거
-    #def sum(*p) :
-    #   return int(p)
-
-    #print(sum(상장주식수))
+    # 궁금한점 뒤에 for문을 배우면 다시 해보자
+    # def sum(*p) :
+    #     for i in p:
+    #         return int(i)
+    #
+    # print(sum(상장주식수))
 
     컴마제거 = 상장주식수.replace(",", "")
     타입변환 = int(컴마제거)
@@ -424,36 +462,36 @@ if __name__=="__main__":
     # startswith의 응용
     # 해당 리스트의 원소들이 각각 'L'로 시작하는지 여부를 True/False로 표시하기
     name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
-    list = []
+    list_1 = []
     for i in name_list:
         s = i.startswith('L')
-        list.append(s)
-    print(s)
-    print(list)
+        list_1.append(s)
+    print(s) #맨 마지막 단어 'Han'
+    print(list_1)
 
     # test 중 test_list에서 마지막에 오는 단어를 기준으로 True, False를 반환함
     test_list = ['Love', 'Yeseul', 'Linda']
     for i in test_list:
         a = i.startswith('L')
 
-    print(a)
+    print(a) #마지막 단어가 Yesul이면 False가 뜸
     # append 메소드: 리스트에 요소를 추가하는 메소드로 리스트 마지막에
     # 순차적으로 요소를 추가
 
     name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
-    list = []
+    list_2 = []
     for i in name_list:
         if i.startswith('L') == True:
-            list.append(i)
+            list_2.append(i)
 
-    print(list)
+    print(list_2)
 
     #046 startswith 메서드
     file_name = "2020_보고서.xlsx"
     print(file_name.startswith('2020'))
 
     #047 split 메서드
-    #문자열이 있을때 공백을 기준으로 문자열을 분리해줍니다(배열안에 담아줌)
+    #문자열이 있을때 공백을 기준으로 문자열을 분리해줍니다(리스트에 담아줌)
     a = "hello world"
     print(a.split())
 
@@ -474,12 +512,14 @@ if __name__=="__main__":
     # 메모리에서 자동으로 삭제됩니다
     data = "039490      "
     data2 = data.rstrip()
+    data.rstrip()
     data1 = "      039490"
     print(data.rstrip()) #공백없음 ->  이때 data에 주소(메모리에 할당된 주소 id)가 공백있는 data에서 공백없는 data로 덮어쓰기 된다
     print(data1.rstrip()) #왼쪽 공백있음
     print(data) #공백있음
     print(data2) #공백없음
-    print(data) #공백있음
+    print(data) #공백있음 궁금한점 왜 공백이 있냐? 515번줄에서 공백삭제한거 아님?
+    print(data1.lstrip()) #공백없음 lstrip 왼쪽 공백 없앰
 
     # 초보자를 위한 파이썬 300제
     # 04. 파이썬 리스트 051 ~ 060
@@ -493,11 +533,11 @@ if __name__=="__main__":
     movie_rank.append("베트맨")
     print(movie_rank)
 
-    #053
+    #053 insert : 집어넣다
     movie_rank.insert(1, "슈퍼맨")
     print(movie_rank)
 
-    #054
+    #054 del 사용함
     movie_rank.remove("럭키")
     print(movie_rank)
     # remove를 사용하거나 del로 인덱스 번호를 지정해서 지울수 있다
@@ -505,7 +545,7 @@ if __name__=="__main__":
     # print(movie_rank)
 
 
-    #055
+    #055 remove 사용함
     # movie_rank 리스트에서 '스플릿'과 '베트맨'을 삭제하라
     # '스플릿' 삭제
     del movie_rank[2]
@@ -538,6 +578,9 @@ if __name__=="__main__":
     nums = [1, 2, 3, 4, 5]
     result = sum(nums) / len(nums)
     print(result)
+
+    # 초보자를 위한 파이썬 300제
+    # 04. 파이썬 리스트 061 ~ 070
 
     #061
     # 날짜 정보를 제외하고 가격 정보만을 출력하라
@@ -582,6 +625,10 @@ if __name__=="__main__":
 
     #069 문자열 split 메서드
     # 문자열.split 함수는 문자열을 일정한 규칙으로 잘라서 리스트로 만들어 주는 함수
+    # 047 문자열이 있을때 공백을 기준으로 문자열을 분리해줍니다(리스트에 담아줌)
+    # split 메서드는 문자열을 분리할 때 사용합니다. 이때 어떤 값을 넘겨주면
+    # 그 값을 기준으로 문자열을 분리해줍니다.
+
     string = "삼성전자/LG전자/Naver"
     interest = string.split('/')
     print(interest)
@@ -599,5 +646,70 @@ if __name__=="__main__":
     data1 = sorted(data)
     print(data1)
 
+    # 복습 이 단어를 보고 기능을 알수 있나요  split, strip, rstrip, replace, insert, join
 
+    # 초보자를 위한 파이썬 300제
+    # 05. 파이썬 튜플 071 ~ 080
 
+    #071
+    my_variable = ()
+    print(my_variable)
+    print(type(my_variable))
+
+    #072
+    movie_rank = ('닥터 스트레인지', '스플릿', '럭키')
+    print(movie_rank)
+
+    #073
+    # one 그냥 1로 나옴
+    one = (1)
+    print(one)
+    print(type(one))
+
+    # 튜플로 하나의 데이터가 저장되는 경우, 아래와 같이 쉼표를 입력해야만 합니다
+    my_tuple = (1,)
+    print(my_tuple)
+    print(type(my_tuple))
+
+    #074
+    # t = (1, 2, 3)
+    # t[0] = 'a'
+    # typeError tuple은 원소(element)의 값을 변경할 수 없습니다
+
+    #075
+    # 원칙적으로 튜플은 괄호와 함께 데이터를 정의해야 하지만, 사용자 편의를 위해
+    # 괄호없이도 동작합니다
+    t = 1, 2, 3, 4
+    print(type(t))
+
+    #076
+    t = ('a', 'b', 'c')
+    result = t[0].capitalize() #이거 둘다 대문자로 되긴됨
+    result = t[0].upper() #이거 둘다 대문자로 되긴됨
+    print(result)
+    print(t)
+    # t[0] = 'A'로 튜플값은 변경 할 수 없기 때문에 새로 업데이트해야함
+    t = ('A', 'b', 'c')
+    print(t)
+
+    #077
+    hi = ('삼성전자', 'LG전자', 'SK Hynix')
+    # result = " ".join(hi)
+    # print(result) #join은 문자열
+    print(type(hi))
+    hello = list(hi)
+    print(hello)
+
+    #078
+    interest = ['삼성전자', 'LG전자', 'SK Hynix']
+    data = tuple(interest)
+    print(data)
+
+    #079 튜플 언팩킹
+    temp = ('apple', 'banana', 'cake')
+    a, b, c = temp
+    print(a, b, c)
+
+    #080 range 함수
+    a = range(2, 100, 2)
+    print(tuple(a))
