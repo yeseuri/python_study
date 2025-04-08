@@ -60,6 +60,7 @@ if __name__=="__main__":
     print(2+2*3)
 
     #015
+    print('-' * 30 + "015")
     a = 128
     print(type(a))
     b="132"
@@ -468,6 +469,7 @@ if __name__=="__main__":
         list_1.append(s)
     print(s) #맨 마지막 단어 'Han'
     print(list_1)
+    print(i)
 
     # test 중 test_list에서 마지막에 오는 단어를 기준으로 True, False를 반환함
     test_list = ['Love', 'Yeseul', 'Linda']
@@ -519,6 +521,7 @@ if __name__=="__main__":
     print(data) #공백있음
     print(data2) #공백없음
     print(data) #공백있음 궁금한점 왜 공백이 있냐? 515번줄에서 공백삭제한거 아님?
+    # rstrip() 메서드를 사용하면 오른쪽 공백이 제거된 새로운 문자열 객체가 반환됩니다
     print(data1.lstrip()) #공백없음 lstrip 왼쪽 공백 없앰
 
     # 초보자를 위한 파이썬 300제
@@ -645,6 +648,7 @@ if __name__=="__main__":
     print(data)
     data1 = sorted(data)
     print(data1)
+    print(data)
 
     # 복습 이 단어를 보고 기능을 알수 있나요  split, strip, rstrip, replace, insert, join
 
@@ -659,6 +663,7 @@ if __name__=="__main__":
     #072
     movie_rank = ('닥터 스트레인지', '스플릿', '럭키')
     print(movie_rank)
+
 
     #073
     # one 그냥 1로 나옴
@@ -680,6 +685,7 @@ if __name__=="__main__":
     # 원칙적으로 튜플은 괄호와 함께 데이터를 정의해야 하지만, 사용자 편의를 위해
     # 괄호없이도 동작합니다
     t = 1, 2, 3, 4
+    print(t)
     print(type(t))
 
     #076
@@ -709,7 +715,234 @@ if __name__=="__main__":
     temp = ('apple', 'banana', 'cake')
     a, b, c = temp
     print(a, b, c)
+    print(a, type(a))
+    print(b, type(b))
+    print(c, type(c))
 
     #080 range 함수
     a = range(2, 100, 2)
     print(tuple(a))
+
+    # 초보자를 위한 파이썬 300제
+    # 06. 파이썬 딕셔너리 081 ~ 090
+
+    #081 별 표현식
+    scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+    *others, _, _ = scores
+    print(others)
+
+    #082
+    scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+    a,b,*others = scores
+    print(others)
+
+    #083
+    scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+    _,*others,_ = scores
+    print(others)
+
+    #084 비어있는 딕셔너리
+    temp = {}
+    print(temp)
+
+    #085
+    icecream = {'메로나' : 1000, '폴라포': 1200, '빵빠레': 1800}
+    print(icecream)
+
+    #086
+    icecream['죠스바'] = 1200
+    icecream['월드콘'] = 1500
+    print(icecream)
+
+    #087
+    merona = icecream['메로나']
+    print("메로나 가격:",merona)
+    print("메로나 가격: " + str(merona))
+
+    #088
+    merona = icecream['메로나'] = 1300
+    print(merona)
+    print(icecream)
+
+    #089
+    del icecream['메로나']
+    print(icecream)
+
+    #090
+    icecream['누가바'] = 1000
+    print(icecream)
+    # 정답: 딕셔너리에 없는 키를 사용해서 인덱싱하면 에러가 발생합니다
+
+    # 초보자를 위한 파이썬 300제
+    # 06. 파이썬 딕셔너리 091 ~ 100
+
+    #091 딕셔너리 생성
+    inventory = {'메로나': [300, 20],
+                '비비빅': [400, 3],
+                '죠스바': [250, 100]}
+    print(inventory)
+
+    #092 딕셔너리 인덱싱
+    #숫자 + 문자열(원) -> ,
+    print(inventory['메로나'][0], "원")
+
+    #093 딕셔너리 인덱싱
+    print(inventory['메로나'][1],"개", sep="")
+
+    #094 딕셔너리 추가
+    inventory['월드콘'] = [500, 7]
+    print(inventory)
+
+    #095 딕셔너리 keys() 메서드
+    icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+    #내가 푼 것
+    # keys = icecream.keys() -> 이게 리스트에 들어 있다
+    # ice_keys = []
+    # ice_keys.append(keys)
+    # print(ice_keys)
+
+    ice_keys = list(icecream.keys())
+    print(ice_keys)
+
+    #096 딕셔너리 values() 메서드
+    #내가 푼 거
+    ice_values = icecream.values()
+    print(ice_values) #-> 왜 인지 튜플안에 리스트로 들어감, dictionary : 딕셔너리
+
+    ice_values = list(icecream.values())
+    print(ice_values)
+    
+    # 위에 value가 여러개 일 때
+    in_values = list(inventory.values())
+    print(in_values)
+
+    #097 딕셔너리 values() 메서드
+    icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+    ice_sum = sum(list(icecream.values()))
+    print(ice_sum)
+
+    #098 딕셔너리 update 메서드
+    icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+    new_product = {'팥빙수': 2700, '아맛나': 1000}
+    icecream.update({'팥빙수': 2700, '아맛나': 1000})
+    print(icecream)
+
+    #099 zip과 dict
+
+    name = ['merona', 'gugucon']
+    price = [500, 1000]
+
+    for n, p in zip(name, price):
+        print(n, p)
+
+    print('-' * 20)
+
+    name = ['merona', 'gugucon']
+    price = [500, 1000]
+
+    z = zip(name, price)
+    print(list(z))
+
+    print('-' * 20)
+
+    name = ['merona', 'gugucon']
+    price = [500, 1000]
+
+    icecream = dict(zip(name, price))
+    print(icecream)
+
+    print('-' * 20)
+
+    keys = ("apple", "pear", "peach")
+    vals = (300, 250, 400)
+
+    result = dict(zip(keys, vals))
+    print(result)
+
+    #100
+    data = {'09/05', '09/06', '09/07', '09/08', '09/09'}
+    close_price = [10500, 10300, 10100, 10800, 11000]
+
+    close_table = dict(zip(data, close_price))
+    print(close_table)
+
+    # 초보자를 위한 파이썬 300제
+    # 07. 파이썬 분기문 101 ~ 110
+
+    #101
+    # True / False를 갖는 데이터 타입은
+    # 'bool'타입 입니다 (불리언)
+    a = True
+    print(type(a))
+
+    #102
+    print(3 == 5)
+
+    #103
+    print(3 < 5)
+
+    #104
+    x = 4
+    print(1 < x < 5)
+
+    #105
+    print((3 == 3) and (4 != 3))
+
+    #106
+    #print(3 => 4)
+    # 지원하지 않는 연산자 입니다
+
+    #107
+    if 4 < 3:
+        print('Hello World')
+
+    # 조건을 만족하지 않기 때문에 아무 결과도 출력되지 않습니다.
+
+    #108
+    if 4 < 3:
+        print('Hello World')
+    else:
+        print('Hi, there')
+
+    #109
+    # 조건이 참이니까 참일떄 문장을 수행한다
+    # 항상 파이썬 인터프리터는 위에서 아래로 실행된다 if문이 끝나면 수행되는 문장일 뿐이다
+
+    if True:
+        print('1')
+        print('2')
+    else:
+        print('3')
+    print('4')
+
+    #110
+    # if문에 조건이 참이니까 실행된거고 그안에 또 참이니까 실행된거
+    if True :
+        if False:
+            print('1')
+            print('2')
+        else:
+            print('3')
+    else:
+        print('4')
+    print('5')
+
+    #111
+    #내가 푼거
+    # print('안녕하세요' * 2)
+
+    user = input("입력:")
+    print(user * 2)
+    
+    #112
+    number_user = input("숫자를 입력하세요:")
+    print(int(number_user) + 10)
+    
+    #113
+    number_user = input()
+    if int(number_user) % 2 == 0 :
+        print("짝수")
+    else:
+        print("홀수")
+
+    #114
