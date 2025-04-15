@@ -133,6 +133,8 @@ if __name__=="__main__":
     print(string[0], string[2], string[4], sep="")
     print(string[::2])
     print(string[::-1])
+    print(string[::-2])
+    print(string[::-3])
     print(string[::1])
     print(string[::3])
     string = "가나다라마바"
@@ -204,6 +206,7 @@ if __name__=="__main__":
     show_man(*p)
     # show_man함수에 return이란 글씨가 없어도 print됨
     show_man('Yoon', 22, 180)
+    print("yoon", "22", "180", sep=', 1')
 
     p = ['park', 21, 177]
     show_man(*p)
@@ -257,6 +260,8 @@ if __name__=="__main__":
 
     # 초보자를 위한 파이썬 300제
     # 03. 파이썬 문자열 031 ~ 040
+
+    print('-' * 30 + "031")
     #031
     # type Error가 뜸
     # a = "3"
@@ -385,9 +390,11 @@ if __name__=="__main__":
     print(result)
     result1 = f'{name1}'
     result2 = f'123{name1}'
+    result3 = f'여어 {"안녕" + "하세요"} 하잇'
     print(result, type(result))
     print(result1, type(result1))
     print(result2, type(result2))
+    print(result3, type(result3))
     print(name1, type(name1))
 
 
@@ -423,6 +430,7 @@ if __name__=="__main__":
     # 원본 문자열은 그대로 유지되고 공백이 제거된 새로운 문자열이 반환됩니다
     data1 = data.strip()
     print(data1)
+    print(data)
 
     # 초보자를 위한 파이썬 300제
     # 03. 파이썬 문자열 041 ~ 050
@@ -471,12 +479,15 @@ if __name__=="__main__":
     # 해당 리스트의 원소들이 각각 'L'로 시작하는지 여부를 True/False로 표시하기
     name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
     list_1 = []
+    list_12 = []
     for i in name_list:
         s = i.startswith('L')
         list_1.append(s)
+        list_12.append(i)
     print(s) #맨 마지막 단어 'Han'
     print(list_1)
     print(i)
+    print(list_12)
 
     # test 중 test_list에서 마지막에 오는 단어를 기준으로 True, False를 반환함
     test_list = ['Love', 'Yeseul', 'Linda']
@@ -487,10 +498,11 @@ if __name__=="__main__":
     # append 메소드: 리스트에 요소를 추가하는 메소드로 리스트 마지막에
     # 순차적으로 요소를 추가
 
+    print('*' * 40)
     name_list = ['Anakin', 'Padme', 'Obiwan', 'Luke', 'Leia', 'R2-D2', 'C-3PO', 'Han']
     list_2 = []
     for i in name_list:
-        if i.startswith('L') == True:
+        if i.startswith('L') :
             list_2.append(i)#마지막 단어가 Yesul이면 False가 뜸
 
     print(list_2)
@@ -527,7 +539,7 @@ if __name__=="__main__":
     print(data1.rstrip())  # 왼쪽 공백있음
     print(data)  # 공백있음
     print(data2)  # 공백없음
-    print(data)  # 공백있음 궁금한점 왜 공백이 있냐? 521번줄에서 공백삭제한거 아님?
+    print(data)  # 공백있음 궁금한점 왜 공백이 있냐? data.rstrip()에서 공백삭제한거 아님?
     # rstrip() 메서드를 사용하면 오른쪽 공백이 제거된 새로운 문자열 객체가 반환됩니다
     print(data1.lstrip())  # 공백없음 lstrip 왼쪽 공백 없앰
 
@@ -705,6 +717,7 @@ if __name__=="__main__":
     print(hello)
 
     # 078
+    print('-' * 30 + "078")
     interest = ['삼성전자', 'LG전자', 'SK Hynix']
     data = tuple(interest)
     print(data)
@@ -767,7 +780,8 @@ if __name__=="__main__":
     print(icecream)
 
     # 090
-    icecream['누가바'] = 1000
+    # icecream['누가바']
+    # icecream['누가바'] = 1000
     print(icecream)
     # 정답: 딕셔너리에 없는 키를 사용해서 인덱싱하면 에러가 발생합니다
 
@@ -822,7 +836,7 @@ if __name__=="__main__":
     # 098 딕셔너리 update 메서드
     icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
     new_product = {'팥빙수': 2700, '아맛나': 1000}
-    icecream.update({'팥빙수': 2700, '아맛나': 1000})
+    icecream.update(new_product)
     print(icecream)
 
     # 099 zip과 dict
@@ -867,6 +881,7 @@ if __name__=="__main__":
     # 초보자를 위한 파이썬 300제
     # 07. 파이썬 분기문 101 ~ 110
 
+    print('-' * 30, '101', sep='')
     # 101
     # True / False를 갖는 데이터 타입은
     # 'bool'타입 입니다 (불리언)
@@ -929,18 +944,137 @@ if __name__=="__main__":
     # 내가 푼거
     # print('안녕하세요' * 2)
 
-    user = input("입력:")
-    print(user * 2)
+    # user = input("입력:")
+    # print(user * 2)
 
     # 112
-    number_user = input("숫자를 입력하세요:")
-    print(int(number_user) + 10)
+    # number_user = input("숫자를 입력하세요:")
+    # print(int(number_user) + 10)
 
     # 113
-    number_user = input()
-    if int(number_user) % 2 == 0:
-        print("짝수")
-    else:
-        print("홀수")
+    # number_user = input()
+    # if int(number_user) % 2 == 0:
+    #     print("짝수")
+    # else:
+    #     print("홀수")
 
     # 114
+    # a = input('숫자를 입력하세요:')
+    # b = int(a) + 20
+    # if b > 255 :
+    #     print("255")
+    # else :
+    #     print(b)
+
+    # 115
+    # a = input('숫자를 입력하세용:')
+    # b = int(a) - 20
+    # if 0 > b :
+    #     print(0)
+    # elif b > 255 :
+    #     print(255)
+    # else :
+    #     print(b)
+
+    # 116
+    # a = input('시간을 입력하세요:')
+    # b = a.endswith("00")
+    # if b:
+    #     print('정각입니다')
+    # else:
+    #     print('정각이 아닙니다')
+
+    # 117 if문에서 in을 사용함
+    # fruit = ['사과', '포도', '홍시']
+    # a = input('좋아하는 과일은?')
+    #
+    # #내가 푼거(for문을 아직 사용하면 안됨)
+    # for i in fruit :
+    #     if a == i :
+    #         print('정답입니다')
+    #     else :
+    #         print('오답입니다')
+    #
+    # print('-' * 30)
+    #
+    ##정답
+    # if a in fruit:
+    #     print('정답입니다')
+    # else :
+    #     print('오답입니다')
+
+    # 118
+    # warn_investment_list = ['Microsoft', 'Google', 'Naver', 'Kakao', 'SAMSUNG', 'LG']
+    # a = input('종목명을 입력하세요: ')
+    # if a in warn_investment_list :
+    #     print('투자 경고 종목입니다')
+    # else :
+    #     print('투자 경고 종목이 아닙니다')
+
+    # 119
+    fruit = {'봄': '딸기', '여름': '토마토', '가을': '사과'}
+    # a = input('제가 좋아하는 계절은: ')
+    # 내가 푼것
+    # if a in fruit.keys() :
+    #     print('정답입니다')
+    # else :
+    #     print('오답입니다')
+    #
+    # #정답
+    # if a in fruit:
+    #     print('정답입니다')
+    # else :
+    #     print('오답입니다')
+
+    # 120
+    # a = input('좋아하는 과일은?')
+    # if a in fruit.values() :
+    #     print('정답입니다')
+    # else :
+    #     print('오답입니다')
+
+    # 초보자를 위한 파이썬 300제
+    # 07. 파이썬 분기문 121 ~ 130
+
+    # 121
+    # a = input('영어를 한글자를 입력하세요: ')
+    # 내가 푼거
+    # if a == a.upper() :
+    #     print(a.lower())
+    # else :
+    #     print(a.upper())
+
+    # 정답
+    # if a.islower() :
+    #     print(a.upper())
+    # else :
+    #     print(a.lower())
+
+    # 122
+    score = input('score: ')
+
+    # 내가 푼 거
+    # if int(a) <= 100 :
+    #     print('grade is A')
+    # elif int(a) <= 80 :
+    #     print('grade is B')
+    # elif int(a) <= 60 :
+    #     print('grade is C')
+    # elif int(a) <= 40 :
+    #     print('grade is D')
+    # else :
+    #     print('grade is E')
+
+    # 정답
+    # 정답보니까 조금 더 생각할껄 싶지? 다 아는데..휴
+    score = int(score)
+    if 81 <= score <= 100:
+        print('grade is A')
+    elif 61 <= score <= 80:
+        print('grade is B')
+    elif 41 <= score <= 60:
+        print('grade is C')
+    elif 21 <= score <= 40:
+        print('grade is D')
+    else:
+        print('grade is E')
