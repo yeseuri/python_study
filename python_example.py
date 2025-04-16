@@ -1055,7 +1055,7 @@ if __name__=="__main__":
     #     print(a.lower())
 
     #122
-    score = input('score: ')
+    # score = input('score: ')
 
     #내가 푼 거
     # if int(a) <= 100 :
@@ -1071,14 +1071,59 @@ if __name__=="__main__":
 
     #정답
     # 정답보니까 조금 더 생각할껄 싶지? 다 아는데..휴
-    score = int(score)
-    if 81 <= score <= 100 :
-        print('grade is A')
-    elif 61 <= score <= 80 :
-        print('grade is B')
-    elif 41 <= score <= 60 :
-        print('grade is C')
-    elif 21 <= score <= 40 :
-        print('grade is D')
-    else :
-        print('grade is E')
+    # score = int(score)
+    # if 81 <= score <= 100 :
+    #     print('grade is A')
+    # elif 61 <= score <= 80 :
+    #     print('grade is B')
+    # elif 41 <= score <= 60 :
+    #     print('grade is C')
+    # elif 21 <= score <= 40 :
+    #     print('grade is D')
+    # else :
+    #     print('grade is E')
+
+    #123
+    # 내가 푼 것
+    # a = input('입력: ')
+    # dollar = 1167
+    # yen = 1.096
+    # euro = 1268
+    # solace = 171
+    # if a.endswith('달러') :
+    #     print(f'{float(a[:-2]) * dollar} 원')
+    # elif a.endswith('엔') :
+    #     print(f'{int(a[:-1]) * yen} 원')
+    # elif a.endswith('유로') :
+    #     print(f'{int(a[:-2]) * euro} 원')
+    # elif a.endswith('위안') :
+    #     print(f'{int(a[:-2]) * solace} 원')
+
+    #정답
+    # 환율 = {'달러': 1167,
+    #       '엔': 1.096,
+    #       '유로': 1268,
+    #       '위안': 171}
+    # #입력할떄 띄어쓰기를 안하면 에러남
+    # user = input('입력: ')
+    # num, currency = user.split()
+    # # 딕셔너리 value값 가져오는 법 -> 환율[currency]
+    # print(float(num) * 환율[currency], '원')
+
+    #124
+    # a = input('input number1: ')
+    # b = input('input number2: ')
+    # c = input('input number3: ')
+    # print(max(a,b,c))
+
+    # #125
+    # phone = {'SKT': '011',
+    #          'KT': '016',
+    #          'LGU': '019',
+    #         '알수없음': '010'}
+    # a = input('휴대전화 번호 입력: ')
+    # number = a.split('-')
+    # if True:
+    #     print(f'당신은 {phone.keys()} 사용자입니다.')
+    # if number[0] == phone.values() :
+    #     print(f'당신은 {phone} 사용자입니다.')
