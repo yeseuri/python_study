@@ -1,4 +1,6 @@
-from dataclasses import replace
+# from dataclasses import replace
+import requests
+# import json  # import json module
 
 if __name__=="__main__":
 
@@ -981,12 +983,21 @@ if __name__=="__main__":
     #     print(b)
 
     #116
+    #내가 푼것
     # a = input('시간을 입력하세요:')
     # b = a.endswith("00")
     # if b:
     #     print('정각입니다')
     # else:
     #     print('정각이 아닙니다')
+
+    #정답
+    # time = input("현재시간: ")
+    # if time[-2:] == "00" :
+    #     print("정각입니다.")
+    # else:
+    #     print('정각이 아닙니다.')
+    #     print(time[::-1]) #이건 내가 넣은거
 
     #117 if문에서 in을 사용함
     # fruit = ['사과', '포도', '홍시']
@@ -1016,7 +1027,7 @@ if __name__=="__main__":
     #     print('투자 경고 종목이 아닙니다')
 
     #119
-    fruit = {'봄': '딸기', '여름': '토마토', '가을': '사과'}
+    # fruit = {'봄': '딸기', '여름': '토마토', '가을': '사과'}
     # a = input('제가 좋아하는 계절은: ')
     #내가 푼것
     # if a in fruit.keys() :
@@ -1117,13 +1128,467 @@ if __name__=="__main__":
     # print(max(a,b,c))
 
     # #125
+    #내가 푼거
     # phone = {'SKT': '011',
     #          'KT': '016',
     #          'LGU': '019',
     #         '알수없음': '010'}
     # a = input('휴대전화 번호 입력: ')
     # number = a.split('-')
-    # if True:
-    #     print(f'당신은 {phone.keys()} 사용자입니다.')
-    # if number[0] == phone.values() :
-    #     print(f'당신은 {phone} 사용자입니다.')
+
+    # 그런데 만약 value를 이용해서 자주 key를 찾는다면
+    # 매번 딕셔너리 전체를 순회하면서 가져오기 때문에 비효율적입니다.
+    # 다른 방법으로는 딕셔너리의 {key, value}를 뒤집어 {value: key} 저장해놓고 찾는 방법이 있습니다.
+
+    # bb = {v:k for k,v in phone.items()} #{key:value}를 뒤집어 {value:key} 저장해놓고 찾는 방법
+
+    # 기존 방법보다 2배의 저장공간을 사용하는 단점과 value값에 중복이 있는 경우 1개만 저장되는 단점이 있습니다
+    # 그렇더라도 더 빠른 속도가 필요한 경우 유용하게 사용할 수 있습니다.
+
+    # if number[0] in phone.values() :
+    #     print(f'당신은 {bb.get(number[0])} 사용자 입니다.')
+
+    #정답
+    # number = input("휴대전화 번호 입력: ")
+    # num = number.split('-')[0]
+    # if num == "011" :
+    #     com = "SKT"
+    # elif num =="016" :
+    #     com = "KT"
+    # elif num == "019" :
+    #     com = "LGU"
+    # else :
+    #     com = "알수없음"
+    # print(f'당신은 {com} 사용자 입니다.')
+
+    #126
+    #내가 푼거
+    # a = input("우편번호를 입력하세요: ")
+    # if a.startswith(('010','011','010')) :
+    #     result = '강북구'
+    # elif a.startswith(('013', '014', '015')) :
+    #     result = '도봉구'
+    # elif a.startswith(('016', '017', '018', '019')) :
+    #     result = '노원구'
+    #
+    # print(result)
+
+    #정답
+    # 우편번호 = input('우편번호를 입력하세요: ')
+    # 우편번호 = 우편번호[:3]
+    #
+    # if 우편번호 in ['010', '011', '012'] :
+    #     print("강북구")
+    # elif 우편번호 in ['013', '014', '015'] :
+    #     print("도봉구")
+    # else :
+    #     print("노원구")
+
+    #127
+    #내가 푼거
+    # 주민번호 = input('주민등록번호: ')
+    # 주민번호 = str(주민번호[7])
+    # if 주민번호 in ('1','3') :
+    #     print('남자')
+    # else :
+    #     print('여자')
+
+    #정답
+    # 주민번호 = input("주민등록번호: ")
+    # 주민번호 = 주민번호.split('-')[1]
+    # if 주민번호[0] == '1' or 주민번호[0] == '3' :
+    #     print('남자')
+    # else :
+    #     print('여자')
+
+
+    #128
+    # 주민번호 = input('주민번호를 입력하세요: ')
+    # 뒷자리 = 주민번호.split('-')[1]
+    #
+    # if 0 <= int(뒷자리[1:3]) <= 8 :
+    #     print('서울 입니다.')
+    #     print(int(뒷자리[2:3]))
+    # else :
+    #     print('서울이 아닙니다.')
+    #     print(int(뒷자리[1:3]))
+
+    #129
+    #내가 푼 것
+    # 주민번호 = input('주민등록번호: ')
+    # 앞자리 = 주민번호.split('-')[0]
+    # 뒷자리 = 주민번호.split('-')[1]
+    # 앞자리숫 = int(앞자리)
+    # 앞자리리 = list(map(int, str(앞자리숫)))
+    # 뒷자리숫 = int(뒷자리)
+    # 뒷자리리 = list(map(int, str(뒷자리숫)))
+    # 앞자리곱 = [2,3,4,5,6,7]
+    # 뒷자리곱 = [8,9,2,3,4,5]
+    # 곱한값 = []
+    # if True :
+    #     print(type(앞자리[0]))
+    #     print(type(앞자리곱[0]))
+    #     print(앞자리숫)
+    #     print(앞자리리)
+    # # if 앞자리[0] * 앞자리곱[0] :
+    # #     곱한값.append()
+    #
+    # 계산1 = (앞자리리[0] * 앞자리곱[0]) + (앞자리리[1] * 앞자리곱[1]) + (앞자리리[2] * 앞자리곱[2]) + (앞자리리[3] * 앞자리곱[3]) + (앞자리리[4] * 앞자리곱[4]) + (앞자리리[5] * 앞자리곱[5]) + (뒷자리리[0] * 뒷자리곱[0]) + (뒷자리리[1] * 뒷자리곱[1]) + (뒷자리리[2] * 뒷자리곱[2]) + (뒷자리리[3] * 뒷자리곱[3]) + (뒷자리리[4] * 뒷자리곱[4]) + (뒷자리리[5] * 뒷자리곱[5])
+    # 계산2 = 11 - (계산1 % 11)
+    # 계산3 = str(계산2)
+    #
+    # if 주민번호[-1] == 계산3[-1]:
+    #     print("유효한 주민등록번호입니다.")
+    #     print(계산3)
+    # else:
+    #     print("유효하지 않은 주민등록번호입니다.")
+    #     print(계산3)
+    #     print(계산3[-1])
+
+    #정답
+    # num = input("주민등록번호: ")
+    # 계산1 = int(num[0]) * 2 + int(num[1]) * 3 + int(num[2]) * 4 + int(num[3]) * 5 + int(num[4]) * 6 + \
+    #       int(num[5]) * 7 + int(num[7]) * 8 + int(num[8]) * 9 + int(num[9]) * 2 + int(num[10]) * 3 + \
+    #       int(num[11]) * 4 + int(num[12]) * 5
+    # 계산2 = 11 - (계산1 % 11)
+    # 계산3 = str(계산2)
+    #
+    # if num[-1] == 계산3[-1]:
+    #     print("유효한 주민등록번호입니다.")
+    # else:
+    #     print("유효하지 않은 주민등록번호입니다.")
+
+    #130
+    # 터미널에 pip install requests 를 입력해서 원래있는 패키지(확장프로그램)를 설치해준다
+    btc = requests.get("https://api.bithumb.com/public/ticker/").json()['data']
+
+    변동폭 = float(btc['max_price']) - float(btc['min_price'])
+    print(변동폭)
+
+    가격 = float(btc['opening_price']) + 변동폭
+
+    최고가 = float(btc['max_price'])
+
+    if 가격 > 최고가 :
+        print('상승장')
+    else :
+        print('하락장')
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 131 ~ 140
+
+    #131 for문의 실행결과를 예측하라
+    과일 = ['사과', '귤', '수박']
+    for 변수 in 과일 :
+        print(변수)
+
+    #132 for문의 실행결과를 예측하라
+    과일 = ['사과', '귤', '수박']
+    for 변수 in 과일 :
+        print('#####')
+
+    # for문의 핵심은 '들여쓰기된 코드가 자료구조에 저장된 데이터 개수만큼
+    # 반복된다'라고 설명했습니다. `과일 = ['사과', '귤', '수박']`에는
+    # 세개의 데이터가 저장돼 있으므로 들여쓰기된 `print('####')` 코드가
+    # 세번 실행됩니다
+
+    #133
+    for 변수 in ['A','B','C'] :
+        print(변수)
+
+    #내가 푼 것
+    abc = ['A','B','C']
+    if abc:
+        print('A', 'B', 'C', sep="\n")
+
+    #정답
+    변수 = 'A'
+    print(변수)
+    변수 = 'B'
+    print(변수)
+    변수 = 'C'
+    print(변수)
+
+    #134
+    for 변수 in ['A','B','C']:
+        print('출력:', 변수)
+
+    #정답
+    변수 = 'A'
+    print('출력:', 변수)
+    변수 = 'B'
+    print('출력:', 변수)
+    변수 = 'C'
+    print('출력:', 변수)
+
+    print('출력:', 'A')
+    print('출력:', 'B')
+    print('출력:', 'C')
+
+    #135
+    for 변수 in ["A", "B", "C"]:
+        b = 변수.lower()
+        print("변환:", b)
+
+    변수 = "A"
+    b = 변수.lower()
+    print('변환:',b)
+    변수 = "B"
+    b = 변수.lower()
+    print('변환:', b)
+    변수 = "C"
+    b = 변수.lower()
+    print('변환:', b)
+
+    #136
+    for 변수 in [10, 20, 30] :
+        print(변수)
+
+    #137
+    for 변수 in [10, 20, 30] :
+        print(변수)
+
+    #138
+    for 변수 in [10, 20, 30]  :
+        print(변수)
+        print('-------')
+
+    #139
+    print('++++')
+    for 변수 in [10, 20, 30]:
+        print(변수)
+
+    #140
+    for i in range(4):
+        print('-------')
+
+    for 변수 in [1,2,3,4]:
+        print('-------')
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 141 ~ 150
+
+    #141
+    #내가 푼 것 - 문제를 똑바로 안봄 다 10원씩 더해야하는데...
+    for 리스트 in [100,200,300]:
+        print(int(리스트 * 1.1))
+
+    #정답
+    판매가 = [100,200,300]
+    for 변수 in 판매가 :
+        print(변수 + 10)
+
+    #142
+    리스트 = ['김밥', '라면', '튀김']
+
+    for i in 리스트:
+        print('오늘의 메뉴: ' + i)
+
+    #143
+    for 변수 in ['SK하이닉스', '심상전자', 'LG전자'] :
+        print(len(변수))
+
+    #144
+    리스트 = ['dog', 'cat', 'parrot']
+    for 변수 in 리스트:
+        print(변수, len(변수))
+
+    #145
+    리스트 = ['dog', 'cat', 'parrot']
+    for 변수 in 리스트:
+        print(변수[0])
+        
+    #146
+    리스트 = [1,2,3]
+    for 변수 in 리스트:
+        print(f'3 x {변수}')
+
+    #정답
+    리스트 = [1,2,3]
+    for 변수 in 리스트:
+        print('3 x', 변수)
+
+    #147
+    리스트 = [1,2,3]
+    for 변수 in 리스트:
+        print('3 x', 변수, '=', 3 * 변수)
+
+    for 변수 in 리스트:
+        print('3 x {} = {}'.format(변수, 3 * 변수))
+
+    #148
+    리스트 = ['가', '나', '다', '라']
+
+    for 변수 in 리스트[1:]:
+        print(변수)
+
+
+    #149
+    for 변수 in 리스트[0:3:2]:
+        print(변수)
+
+    #정답
+    for 변수 in 리스트[::2]:
+        print(변수)
+
+    #150
+    리스트 = ['가', '나', '다', '라']
+    
+    for 변수 in 리스트[::-1]:
+        print(변수)
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 151 ~ 160
+
+    #151
+    리스트 = [3, -20, -3, 44]
+
+    for 변수 in 리스트:
+        if 0 > 변수 :
+            print(변수)
+
+
+    #152
+    리스트 = [3, 100, 23, 44]
+
+    for 변수 in 리스트:
+        if 변수 % 3 == 0:
+            print(변수)
+
+    #153
+    리스트 = [13, 21, 12, 14, 30, 18]
+
+    for 변수 in 리스트:
+        if 변수 < 20 :
+            if 변수 % 3 == 0 :
+                print(변수)
+    
+    #정답
+    for 변수 in 리스트:
+        if (변수 < 20) and (변수 % 3 == 0) :
+            print(변수)
+
+    #154
+    리스트 = ['I', 'study', 'python', 'language', '!']
+
+    for 변수 in 리스트:
+        if len(변수) >= 3 :
+            print(변수)
+
+    #155
+    리스트 = ['A', 'b', 'c', 'D']
+
+    for 변수 in 리스트:
+        if 변수.isupper():
+            print(변수)
+    
+    #156
+    
+    for 변수 in 리스트:
+        if 변수.islower() :
+            print(변수)
+
+    #정답
+    for 변수 in 리스트:
+        if 변수.isupper() == False:
+            print(변수)
+
+    for 변수 in 리스트:
+        if 변수.isupper() != True:
+            print(변수)
+
+    for 변수 in 리스트:
+        if not 변수.isupper() :
+            print(변수)
+
+    #157
+    리스트 = ['dog', 'cat', 'parrot']
+
+    for 변수 in 리스트:
+        print(변수.capitalize())
+
+    for 변수 in 리스트:
+        print(변수[0].upper(), 변수[1:], sep="")
+
+    #정답
+    for 변수 in 리스트:
+        print(변수[0].upper() + 변수[1:])
+
+    #158
+    리스트 = ['hello.py', 'ex01.py', 'intro.hwp']
+
+    for 변수 in 리스트:
+        print(변수.split('.')[0])
+
+    #정답
+    for 변수 in 리스트:
+        split = 변수.split('.')
+        print(split[0])
+    
+    #159
+    리스트 = ['intra.h', 'intra.c', 'define.h', 'run.py']
+    
+    for 변수 in 리스트:
+        if 변수[-2::] == '.h':
+            print(변수)
+
+    #정답
+    for 변수 in 리스트:
+        split = 변수.split('.')
+        if split[1] == 'h':
+            print(변수)
+            
+    #160
+    for 변수 in 리스트:
+        split = 변수.split('.')
+        if (split[1] == 'h') or (split[1] == 'c'):
+            print(변수)
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 161 ~ 170
+
+    #161
+    for 변수 in range(100):
+        print(변수)
+        
+    #162
+    for 변수 in range(2002,2051,4):
+        print(변수)
+
+    #163
+    for 변수 in range(3,31,3):
+        print(변수)
+        
+    #164
+    # for 변수 in range(99,-1,-1):
+    #     print(변수)
+
+    #정답
+    for i in range(100):
+        print(99 - i)
+
+    #165
+    #정답
+    for i in range(10):
+        print(i / 10)
+
+    #166
+    for i in range(1,10):
+        print('3 x', i, '=', 3 * i )
+
+    #167
+    for i in range(1,10):
+        if i % 2 == 1:
+            print('3 x', i, '=', 3 * i)
+
+    #복수 정답
+    for i in range(1,10,2):
+        num = 3
+        print(num, 'x', i, '=', num * i)
+
+    #168
+    #정답
+    sum = 0
+    for i in range(1,11):
+        sum += i
+        print('합 :', sum)
