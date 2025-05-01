@@ -1547,6 +1547,8 @@ if __name__=="__main__":
     # 초보자를 위한 파이썬 300제
     # 08. 파이썬 반복문 161 ~ 170
 
+    # range(stop): 0부터 stop-1까지의 숫자를 생성합니다
+
     #161
     for 변수 in range(100):
         print(변수)
@@ -1592,3 +1594,190 @@ if __name__=="__main__":
     for i in range(1,11):
         sum += i
         print('합 :', sum)
+
+    #169
+    sum = 0
+    for i in range(1,11):
+        if i % 2 == 1 :
+            sum = sum + i
+            print('합 :', sum)
+
+    #170
+    result = 1
+    for i in range(1,11):
+        result = result * i
+        print(result)
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 171 ~ 180
+
+    print('-' * 30, '171')
+    # range(stop) : 0부터 stop-1까지의 숫자를 생성합니다
+    # range(start, stop) : start부터 stop-1까지의 숫자를 생성합니다
+    # range(start, stop, step) : start부터 stop-1까지 step 간격으로
+    # 숫자를 생성합니다
+
+    #171
+    price_list = [32100, 32150, 32000, 32500]
+
+    for i in range(len(price_list)):
+        print(price_list[i])
+
+    #172
+    for i in range(len(price_list)):
+        print(i, price_list[i])
+
+    #range를 안쓰면 for문을 쓰면 되지
+
+    for i in price_list:
+        print(i)
+
+    # 인덱스(index)와 원소를 동시에 접근하면서 루프돌리기
+    # 파이썬 내장함수 enumerate()사용 for문의 in 뒷부분을 enumerate() 함수
+    # 로 감싸주면 되는데 기본적으로 인덱스와 원소로 이루어진 튜플을 만들어줍니다
+    for i in enumerate(price_list):
+        print(i)
+    # enumerate()함수를 인덱스와 원소를 각각 다른 변수에 할당하고 싶다면
+    # 인자 풀기(unpacking)를 해줘야 합니다
+    for i, j in enumerate(['A', 'B', 'C']):
+        print(i, j)
+
+    for i, j in enumerate(price_list):
+        print(i, j)
+
+    #173
+    price_list = [32100, 32150, 32000, 32500]
+
+    #정답
+    for i in range(len(price_list)):
+        print(3 - i, price_list[i])
+
+    #복수정답
+    for i in range(len(price_list)):
+        print('복수정답:',(len(price_list) -1) - i, price_list[i])
+
+    #174
+    for i in range(len(price_list)):
+        print('1', i, '0', price_list[i])
+
+    #정답
+    for i in range(1,4):
+        print(90 + 10 * i, price_list[i])
+
+    #175
+    my_list = ['가', '나', '다', '라']
+
+    for i in [0,1,2]:
+        print(my_list[i], my_list[i + 1])
+
+    for i in range(1, len(my_list)):
+        print(my_list[i-1], my_list[i])
+
+    #176
+    my_list = ['가','나','다','라','마']
+
+    for i in [0, 1, 2]:
+        print(my_list[i], my_list[i + 1], my_list[i + 2])
+
+    #177
+    my_list = ['가','나','다','라']
+
+    # for i in range(1,0,-1):
+    #     print(my_list[i])
+
+    for i in range(3, 0, -1):
+        print(i)
+        print(my_list[i], my_list[i - 1])
+
+    #178
+    my_list = [100, 200, 400, 800]
+
+    for i in range(3):
+        print(i)
+        print(my_list[i + 1] - my_list[i])
+
+    #복수정답
+    for i in range(len(my_list) - 1):
+        print(abs(my_list[i + 1] - my_list[i]))
+
+    print('-' * 20)
+    #179
+    my_list = [100, 200, 400, 800, 1000, 1300]
+
+    sum = 0
+    for i in range(3):
+        sum = sum + my_list[i]
+        print('sum / 3 ', sum / 3)
+        # print(my_list[i + 2] - my_list[i + 1])
+        # print(my_list[i + 3] - my_list[i + 2])
+
+    # 정답
+    for i in [1,2,3,4]:
+        print(abs(my_list[i - 1] + my_list[i] + my_list[i + 1]) / 3)
+        print('i - 1 :', my_list[i - 1])
+        print('i :', my_list[i])
+        print('i + 1 :', my_list[i + 1])
+
+    # 심화 정답
+    for i in range(1, len(my_list) - 1):
+        print(abs(my_list[i - 1] + my_list[i] + my_list[i + 1]) / 3)
+
+    # i  -1 0 1
+    # 1   0 1 2
+    # 2   1 2 3
+    # 3   2 3 4
+    # 4   3 4 5
+    
+    # 인덱스의 범위와 순서가 헷갈려서 나오는 문제임
+    #1,2,3,4는 횟수를 4번한단거고(4줄 print한다)
+    # 4번째는 3 4 5 즉 my_list = [100, 200, 400, 800, 1000, 1300]
+    # 800, 1000, 1300을 의미한다
+    # i = 4는 3인덱스를 가르키는게 아니라 횟수로 4번이고 range범위를 넘어선
+    # my_list의 3 4 5 인덱스도 간다
+
+    #180
+    low_prices = [100, 200, 400, 800, 1000]
+    high_prices = [150, 300, 430, 880, 1000]
+
+    a = []
+    for i in [0,1,2,3,4]:
+        volatility = high_prices[i] - low_prices[i]
+        a.append(volatility)
+        print(a)
+
+    #정답
+    volatility = []
+    for i in range(len(low_prices)):
+        volatility.append(high_prices[i] - low_prices[i])
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 181 ~ 190
+
+    #181
+    apart = [['101호', '102호'], ['201호', '202호'], ['301호', '302호']]
+    print(apart)
+
+    #182
+    stock = [['시가',100, 200, 300], ['종가', 80, 210, 330]]
+    print(stock)
+
+    #183
+    stock = {'시가': [100, 200, 300], '종가': [80, 210, 330]}
+    print(stock)
+
+    #184
+    stock = {'10/10' : [80, 110, 70, 90], '10/11' : [210, 230, 190, 200]}
+    print(stock)
+
+    #185
+    apart = [[101, 102], [201, 202], [301, 302]]
+
+    # 내가 못 푼거
+    print(apart[0][1])
+    for i in range(len(apart)):
+        print(apart[i])
+
+    #정답
+    for row in apart:
+        for col in row:
+            print(col, '호')
