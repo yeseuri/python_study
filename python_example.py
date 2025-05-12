@@ -398,7 +398,7 @@ if __name__=="__main__":
     print(result2, type(result2))
     print(result3, type(result3))
     print(name1, type(name1))
-    
+
     #038 컴마 제거 하기
     상장주식수 = "5,969,782,550"
 
@@ -828,7 +828,7 @@ if __name__=="__main__":
 
     ice_values = list(icecream.values())
     print(ice_values)
-    
+
     # 위에 value가 여러개 일 때
     in_values = list(inventory.values())
     print(in_values)
@@ -952,11 +952,11 @@ if __name__=="__main__":
     #111
     # user = input("입력:")
     # print(user * 2)
-    
+
     #112
     # number_user = input("숫자를 입력하세요:")
     # print(int(number_user) + 10)
-    
+
     #113
     # number_user = input("숫자를 입력하세요 :")
     # if int(number_user) % 2 == 0 :
@@ -1050,7 +1050,7 @@ if __name__=="__main__":
 
     # 초보자를 위한 파이썬 300제
     # 07. 파이썬 분기문 121 ~ 130
-    
+
     #121
     # a = input('영어를 한글자를 입력하세요: ')
     # 내가 푼거
@@ -1397,7 +1397,7 @@ if __name__=="__main__":
     리스트 = ['dog', 'cat', 'parrot']
     for 변수 in 리스트:
         print(변수[0])
-        
+
     #146
     리스트 = [1,2,3]
     for 변수 in 리스트:
@@ -1433,7 +1433,7 @@ if __name__=="__main__":
 
     #150
     리스트 = ['가', '나', '다', '라']
-    
+
     for 변수 in 리스트[::-1]:
         print(변수)
 
@@ -1462,7 +1462,7 @@ if __name__=="__main__":
         if 변수 < 20 :
             if 변수 % 3 == 0 :
                 print(변수)
-    
+
     #정답
     for 변수 in 리스트:
         if (변수 < 20) and (변수 % 3 == 0) :
@@ -1481,9 +1481,9 @@ if __name__=="__main__":
     for 변수 in 리스트:
         if 변수.isupper():
             print(변수)
-    
+
     #156
-    
+
     for 변수 in 리스트:
         if 변수.islower() :
             print(변수)
@@ -1524,10 +1524,10 @@ if __name__=="__main__":
     for 변수 in 리스트:
         split = 변수.split('.')
         print(split[0])
-    
+
     #159
     리스트 = ['intra.h', 'intra.c', 'define.h', 'run.py']
-    
+
     for 변수 in 리스트:
         if 변수[-2::] == '.h':
             print(변수)
@@ -1537,7 +1537,7 @@ if __name__=="__main__":
         split = 변수.split('.')
         if split[1] == 'h':
             print(변수)
-            
+
     #160
     for 변수 in 리스트:
         split = 변수.split('.')
@@ -1552,7 +1552,7 @@ if __name__=="__main__":
     #161
     for 변수 in range(100):
         print(변수)
-        
+
     #162
     for 변수 in range(2002,2051,4):
         print(변수)
@@ -1560,7 +1560,7 @@ if __name__=="__main__":
     #163
     for 변수 in range(3,31,3):
         print(변수)
-        
+
     #164
     # for 변수 in range(99,-1,-1):
     #     print(변수)
@@ -1590,17 +1590,17 @@ if __name__=="__main__":
 
     #168
     #정답
-    sum = 0
+    for_sum = 0
     for i in range(1,11):
-        sum += i
-        print('합 :', sum)
+        for_sum += i
+        print('합 :', for_sum)
 
     #169
-    sum = 0
+    for_sum = 0
     for i in range(1,11):
         if i % 2 == 1 :
-            sum = sum + i
-            print('합 :', sum)
+            for_sum = for_sum + i
+            print('합 :', for_sum)
 
     #170
     result = 1
@@ -1704,10 +1704,10 @@ if __name__=="__main__":
     #179
     my_list = [100, 200, 400, 800, 1000, 1300]
 
-    sum = 0
+    for_sum = 0
     for i in range(3):
-        sum = sum + my_list[i]
-        print('sum / 3 ', sum / 3)
+        for_sum = for_sum + my_list[i]
+        print('sum / 3 ', for_sum / 3)
         # print(my_list[i + 2] - my_list[i + 1])
         # print(my_list[i + 3] - my_list[i + 2])
 
@@ -1727,7 +1727,7 @@ if __name__=="__main__":
     # 2   1 2 3
     # 3   2 3 4
     # 4   3 4 5
-    
+
     # 인덱스의 범위와 순서가 헷갈려서 나오는 문제임
     #1,2,3,4는 횟수를 4번한단거고(4줄 print한다)
     # 4번째는 3 4 5 즉 my_list = [100, 200, 400, 800, 1000, 1300]
@@ -1781,3 +1781,395 @@ if __name__=="__main__":
     for row in apart:
         for col in row:
             print(col, '호')
+
+    #186
+    for col in apart[::-1]:
+        for row in col:
+            print(row, '호')
+
+    #복수정답
+    for row in apart[::-1]:
+        for col in row:
+            print(col, '호')
+
+    #187
+    for row in apart[::-1]:
+        for col in row[::-1]:
+            print(col, '호')
+
+    #188
+    for row in apart:
+        for col in row:
+            print(col, '호')
+            print('-' * 5)
+
+    #189
+    for row in apart:
+        print('-' * 5)
+        for col in row:
+            print(col, '호')
+
+    #190
+    for row in apart:
+        for col in row:
+            print(col, '호')
+    print('-' * 5)
+
+    # 초보자를 위한 파이썬 300제
+    # 08. 파이썬 반복문 191 ~ 200
+
+    #191
+    data = [
+        [2000, 3050, 2050, 1980],
+        [7500, 2050, 2050, 1980],
+        [15450, 15050, 15550, 14900]
+    ]
+    for line in data:
+        for column in line:
+            print(column * 1.00014)
+
+    #192
+    #정답
+    for line in data:
+        for column in line:
+            print(column * 1.00014)
+        print('-' * 4)
+
+    #193
+    result = []
+    for line in data:
+        for column in line:
+            result.append(column * 1.00014)
+    print(result)
+
+    #194
+    print('-' * 20)
+
+    result = []
+
+    for line in data:
+        print('line:', line)
+        print('data:', data)
+        sub = []
+        for column in line:
+            print(column)
+            print('line2:', line)
+            sub.append(column * 1.00014)
+            print('sub1:', sub)
+            # result.append(sub) -> [리스트]가 12개가 나옴
+
+        result.append(sub) #-> [리스트]가 3개 나옴
+
+    print('sub2:',sub)
+    print('result:', result)
+
+
+    #195
+    ohlc = [['open', 'high', 'low', 'close'],
+            [100, 110, 70, 100],
+            [200, 210, 180, 190],
+            [300, 310, 300, 310]
+            ]
+
+    sub = []
+    for line in ohlc[1:]:
+
+        for column in ohlc:
+            print(line)
+        sub.append(line[3])
+    print(sub)
+
+    #정답
+    for row in ohlc[1:]:
+        print(row[3])
+
+    #196
+    for row in ohlc[1:]:
+        if row[3] > 150:
+            print(row[3])
+
+    #197
+    #내가 푼 것
+    for row in ohlc:
+        if row[0] <= row[3]:
+            print(row[3])
+
+    #정답
+    for row in ohlc[1:]:
+        if row[3] >= row[0]:
+            print(row[3])
+
+    #198
+    volatility = []
+    for row in ohlc[1:]:
+        sub = int(row[1]) - int(row[2])
+        volatility.append(sub)
+        print(volatility)
+
+    #정답
+    volatility = []
+    for row in ohlc[1:]:
+        volatility.append(row[1]-row[2])
+        print(volatility)
+
+    #복수정답
+    volatility = []
+    print(ohlc[i][1])
+
+    for i in range(3):
+        print(i)
+
+    for i in range(1, len(ohlc)):
+        volatility.append(ohlc[i][1] - ohlc[i][2])
+        print(volatility)
+
+    #199
+    #내가 푼 것
+    for i in range(1, len(ohlc)):
+        if ohlc[i][3] > ohlc[i][0]:
+            date = ohlc[i]
+            print(date[1] - date[2])
+
+    #정답
+    for row in ohlc[1::]:
+        if row[3] > row[0] :
+            print(row[1] - row[2])
+
+    print('-' * 10, 200)
+    #200
+    ye = 0
+    for row in ohlc[1::]:
+        sub = row[0] - row[3]
+        ye += sub
+        print(ye)
+
+    # 초보자를 위한 파이썬 300제
+    # 09. 파이썬 함수 201 ~ 210
+
+    #201
+    def print_coin():
+        print('비트코인')
+
+    #202
+    print_coin()
+
+    #203
+    for i in range(100):
+        print_coin()
+
+    #204
+    def print_coins():
+        for i in range(100):
+            print('비트코인')
+
+    print_coins()
+
+    #205
+    def hello():
+        print('hi')
+
+    hello()
+
+    #206
+    def message():
+        print('A')
+        print('B')
+
+    message()
+    print('C')
+    message()
+
+    #207
+    print('A')
+
+    def message():
+        print('B')
+
+    print('C')
+    message()
+
+    #208
+    print('A')
+    def message1():
+        print('B')
+    print('C')
+    def message2():
+        print('D')
+    message1()
+    print('E')
+    message2()
+
+    #209
+    def message1():
+        print('A')
+
+    def message2():
+        print('B')
+        message1()
+
+    message2()
+
+    #210
+    def message1():
+        print('A')
+
+    def message2():
+        print('B')
+
+    def message3():
+        for i in range(3):
+            message2()
+            print('C')
+        message1()
+
+    message3()
+
+    # 초보자를 위한 파이썬 300제
+    # 09. 파이썬 함수 211 ~ 220
+
+    #211
+    def 함수(문자열):
+        print(문자열)
+
+    함수('안녕')
+    함수('Hi')
+
+    #212
+    def 함수(a,b):
+        print(a + b)
+
+    함수(3, 4)
+    함수(7, 8)
+
+    #213
+    def 함수(문자열):
+        print(문자열)
+
+    #함수() -> TypeError
+
+    #214
+    def 함수(a, b):
+        print(a + b)
+    
+    #함수('안녕',3) -> TypeError 문자열과 숫자는 더할수 없다
+    
+    #215
+    def 함수(문자열):
+        print(문자열 + ':D')
+        
+    함수('안녕')
+    # 함수 호출할때 작은 따옴표나 쌍따옴표를 넣어서 문자열로 만들어주고 호출해야한다
+
+    #정답
+    def print_with_smile(string):
+        print(string + ':D')
+
+    #216
+    print_with_smile('안녕하세요')
+
+    #217
+    def print_upper_price(num):
+        print(num * 1.3)
+
+    print_upper_price(100)
+
+    #218
+    def print_sum(a, b):
+        print(a + b)
+
+    print_sum(1,2)
+
+    #219
+    def print_arithmetic_operation(a,b):
+        print(f'{a} + {b} = {a + b}')
+        print(a, '-', b, '=', a - b)
+        print(a, '*', b, '=', a * b)
+        print(a, '/', b, '=', a / b)
+
+    print_arithmetic_operation(1,2)
+
+    #220
+    # def print_max(a, b, c):
+    #     if max(a,b,c):
+    #         print(max(a, b, c))
+    # print_max(1,2,3)
+    
+    #복수 정답
+    def print_max(a, b, c):
+        max_value = 0
+        if a > max_value:
+            max_value = a
+        if b > max_value:
+            max_value = b
+        if c > max_value:
+            max_value = c
+        print(max_value)
+
+
+    print_max(1, 3, 3)
+
+    #정답
+    def print_max(a, b, c):
+        if a >= b and a >= c:
+            print(a)
+        elif b >= a and b >= c:
+            print(b)
+        else:
+            print(c)
+
+
+    print_max(10, 10, 4)
+
+    # 초보자를 위한 파이썬 300제
+    # 09. 파이썬 함수 221 ~ 230
+
+    #221
+    def print_reverse(string):
+        print(string[::-1])
+
+    print_reverse('python')
+
+    #222
+    def print_score(a):
+        print(sum(a)/len(a))
+
+    print_score([1, 2, 3])
+
+    #223
+    def print_even(a):
+        for i in a:
+            if i % 2 == 0:
+                print(i)
+
+    print_even([1, 3, 2, 10, 12, 11, 15])
+
+    #224
+    def print_keys(a):
+        for i in a.keys():
+            print(i)
+
+    print_keys({'이름':'김말똥', '나이':30, '성별':0})
+
+    #225
+    my_dict = {'10/26' : [100, 130, 100, 100],
+               '10/27' : [10, 12, 10, 11]}
+
+    def print_value_by_key(a, b):
+        print(a.get(b))
+
+    print_value_by_key(my_dict, '10/26')
+
+    #226
+    # def print_5xn(a):
+    #     print(a[:5])
+    #     print(a[5:])
+    # 
+    # print_5xn('아이엠어보이유알어걸')
+
+    #정답
+    def print_5xn(line):
+        for x in range(3):
+            print(x)
+            print(line[x * 5:x * 5 + 5])
+            
+    print_5xn('아이엠어보이유알어걸')
