@@ -1,6 +1,12 @@
 from dataclasses import replace
+from multiprocessing.spawn import set_executable
 import requests
  # import json  # import json module
+import datetime
+import mod1
+import time
+import os
+import numpy
 
 if __name__=="__main__":
 
@@ -930,6 +936,7 @@ if __name__=="__main__":
         print('3')
     print('4')
 
+    print('-' * 20, 110)
     # 110
     # if문에 조건이 참이니까 실행된거고 그안에 또 참이니까 실행된거
     if True:
@@ -2219,9 +2226,460 @@ if __name__=="__main__":
 
     # 정답
     def print_5xn(line):
-        for x in range(3):
+        cut_5xn = int(len(line) / 5)
+        print(cut_5xn)
+        for x in range(cut_5xn + 1):
             print(x)
             print(line[x * 5:x * 5 + 5])
 
-
     print_5xn('아이엠어보이유알어걸')
+
+
+    # 227
+    def printmxn(a, b):
+        cut_3xn = int(len(a) / b)
+        for x in range(cut_3xn + 1):
+            print(a[x * b:x * b + b])
+
+
+    printmxn('아이엠어보이유알어걸', 3)
+
+
+    # 228
+    def calc_monthly_salary(annual_pay):
+        monthly_pay = int(annual_pay / 12)
+        return monthly_pay
+
+
+    calc_monthly_salary(12000000)
+
+
+    # 229
+    def my_print(a, b):
+        print('왼쪽:', a)
+        print('오른쪽:', b)
+
+
+    my_print(a=100, b=100)
+
+
+    # 230
+    def my_print(a, b):
+        print('왼쪽:', a)
+        print('오른쪽:', b)
+
+
+    my_print(b=100, a=200)
+
+
+    # 초보자를 위한 파이썬 300제
+    # 09. 파이썬 함수 231 ~ 240
+
+    # 231
+    # return을 사용할때 print를 안적으면
+    # a = n_plus_1()을 해서
+    # a안에 답을 담을수 있다
+    # 값을 화면에 출력할려면 return만 적으면 안되고 print를 해야한다
+    # 힘수안에 값을 밖으로 꺼낼려면 return을 해야한다 밖으로 보내줘야 한다
+    # 3과 4는 함수가 끝남으로 인해 없어진다
+    # 함수 안에 있는 변수랑 함수 밖에 있는 변수는 서로 다른 공간에 있다
+    # 함수 안에 있는 변수는 함수 바깥에서 함수 호출이 끝난다음에 밖에서 사용할수 없다
+    # 그래서 그 값을 사용할려면 외부로 return을 해줘야 한다
+
+    def n_plus_1(n):
+        n_plus_result = n + 1
+
+
+    n_plus_1(3)
+
+
+    # print(n_plus_result) - Error 'n_plus_result' is not defind
+
+    # 232
+    # def make_url(n):
+    #     if n == 'naver':
+    #         print('www.naver.com')
+    #
+    # make_url('naver')
+
+    # 정답
+    def make_url(n):
+        url = 'www.' + n + '.com'
+        return print(url)
+
+
+    # print 안적으니까 아무것도 출력 안해서 print적었다
+    make_url('naver')
+
+
+    # 233
+    def make_list(n):
+        return print([n[0], n[1], n[2], n[3]])
+
+
+    make_list('abcd')
+
+    # 234
+    # 내가 픈거 (이게 왜 안되냐)
+    result = []
+
+
+    def pickup_even(n):
+        for index, value in enumerate(n):
+            print(index, value)
+            if value % 2 == 0:
+                result.append(value)
+            return print(result)
+
+
+    pickup_even([3, 4, 5, 6, 7, 8])
+
+    # 내가 푼거 (이게 왜 안되냐)
+    result = []
+
+
+    def pickup_even(n):
+        for i in n:
+            print(i)
+            if i % 2 == 0:
+                result.append(i)
+                return print(result)
+
+
+    pickup_even([3, 4, 5, 6, 7, 8])
+
+
+    # 정답
+    def pickup_even(n):
+        result = []
+        for item in n:
+            print(item)
+            if item % 2 == 0:
+                result.append(item)
+        print(result)
+
+
+    pickup_even([3, 4, 5, 6, 7, 8])
+
+
+    # 235
+    # 내가 푼 거
+    def convert_int(string):
+        string1 = string.replace(',', '')
+        print(int(string1))
+
+
+    convert_int('1,234,567')
+
+
+    # 정답
+    def convent_int(string):
+        return print(int(string.replace(',', '')))
+
+
+    convent_int('1,234,567')
+
+
+    # 236
+    def 함수(num):
+        return num + 4
+
+
+    a = 함수(10)
+    b = 함수(a)
+    c = 함수(b)
+    print(c)
+
+
+    # 237
+    def 함수(num):
+        return num + 4
+
+
+    c = 함수(함수(함수(10)))
+    print(c)
+
+
+    # 238
+    def 함수1(num):
+        return num + 4
+
+
+    def 함수2(num):
+        return num * 10
+
+
+    a = 함수1(10)
+    c = 함수2(a)
+    print(c)
+
+
+    # 239
+    def 함수1(num):
+        return num + 4
+
+
+    def 함수2(num):
+        num = num + 2
+        return 함수1(num)
+
+
+    c = 함수2(10)
+    print(c)
+
+
+    # 240
+    def 함수0(num):
+        return num * 2
+
+
+    def 함수1(num):
+        return 함수0(num + 2)
+
+
+    def 함수2(num):
+        num = num + 10
+        return 함수1(num)
+
+
+    c = 함수2(2)
+    print(c)
+
+    # 초보자를 위한 파이썬 300제
+    # 10. 파이썬 모듈 241 ~ 250
+
+    # 241 현재시간
+    now = datetime.datetime.now()
+    print(now)
+
+    # 242 현재시간의 타입
+    print(type(now))
+
+    # 연습 (mod1.py)
+    # import mod1
+    print(mod1.add(3, 4))
+    print(mod1.sub(4, 3))
+
+    today = datetime.date.today()
+    print(today)
+
+    diff_days = datetime.timedelta(days=100)
+    print(diff_days)
+    print(today + diff_days)
+
+    # 243 timedelta
+    for day in range(5, 0, -1):
+        delta = datetime.timedelta(days=day)
+        one_days = now - delta
+        print(one_days)
+
+    # 244 strftime
+    print(now.strftime('%H:%M:%S'))
+
+    # 245 strptime
+    day = '2020-05-04'
+    day_strptime = datetime.datetime.strptime(day, '%Y-%m-%d')
+    print(day_strptime, type(day_strptime))
+
+    # 246 sleep 함수
+    # 내가 푼 것
+    # time.sleep(60)
+    # print(now.strftime('%H:%M:%S'))
+
+    # 정답
+    # while True:
+    #     now = datetime.datetime.now()
+    #     print(now)
+    #     time.sleep(1)
+
+    # 247 모듈 임포트
+    # 모듈을 임포트하는 4가지 방식
+    # 1. import 모듈이름
+    # 모듈이름.변수명
+    # 모듈이름.함수명
+    # 2. import 모듈이름 as 새롭게 정의한 이름
+    # as 뜻: ~로
+    # 새롭게 정의한 이름.변수
+    # 새롭게 정의한 이름.함수
+    # 3. from 모듈이름 import 필요한 부분
+    # from 뜻: ~에서
+    # 필요한 부분 : > 변수, > 함수, > 클래스
+    # 이렇게 하면 필요한 부분만 import해서 모듈이름을 적어줄 필요가 없다
+    # 필요한 부분을 콤마(,)로 연결해서 한번에 작성해도 된다
+    # 4. from 모듈이름 import *
+    # 이 경우 용량이 큰 모듈인 경우에는 처리 속도가 느려질 수 있으니 주의하자
+
+    # 248 os 모듈
+    ret = os.getcwd()
+    print(ret, type(ret))
+
+    # 249 rename 함수
+    # 주석으로 정답을 적어둬도 에러가 떠서 삭제함
+
+    # 250
+    # 내가 푼 것
+    # print(np.arange([0, ]6, [0.1, ]dtype=None))
+
+    # 예시
+    arr = numpy.arange(10)
+    print(arr)
+
+    # 내가 푼 것
+    result = numpy.arange(0, 5, 0.1)
+    print(result)
+
+    # 정답
+    for i in numpy.arange(0, 5, 0.1):
+        print(i)
+
+
+    # 초보자를 위한 파이썬 300제
+    # 11. 파이썬 클래스 251 ~ 260
+
+    # 251 클래스, 객체, 인스턴스
+    # 클래스는 일종의 설계도로, 하나의 타입을 정의하는 방법입니다. 클래스에는 관련있는
+    # 데이터와 함수를 한 데 모아 정의할 수 있습니다. 클래스로 만들어진 결과물을 객체라고 합니다.
+    # https://nirsa.tistory.com/110
+
+    # 252 클래스 정의
+    # 비어있는 사람 (Human) 클래스를 '정의' 해보세요
+    # 정답
+    class Human:
+        pass
+
+
+    # 253 인스턴스 생성
+    # 사람 (Human) 클래스의 인스턴스를 '생성'하고 이를 areum 변수로 바인딩해보세요
+
+    # 정답
+    class Human:
+        pass
+
+
+    areum = Human()
+
+
+    # 254 클래스 생성자-1
+    # 사람 (Human) 클래스에 '응애응애'를 출력하는 생성자를 추가하세요
+    class Human:
+        def __init__(self):
+            print('응애응애')
+
+
+    areum = Human()
+
+
+    # 255 클래스 생성자-2
+    # 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 생성자를 추가하세요
+
+    # 내가 푼 것
+    class Human:
+        def __init__(self):
+            print('응애응애')
+
+        def profile(self, name, age, sex):
+            print('이름은 {0}, 나이는 {1}, 성별은 {2} 입니다')
+
+
+    # 정답
+    class Human:
+        def __init__(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+
+    areum = Human('아름', 25, '여자')
+    print(areum.name)
+
+
+    # 256 인스턴스 속성에 접근
+    class Human:
+        def __init__(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+        def profile(self):
+            print('이름: {0} 나이: {1} 성별: {2}'.format(self.name, self.age, self.sex))
+
+
+    areum = Human('아름', 25, '여자')
+    areum.profile()
+
+
+    # Human.profile(areum) 도 된다
+
+    # 258 클래스 메소드 - 2
+    # 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 setInfo 메소드를 추가하세요
+
+    # 내가 푼 것
+    class Human:
+        def setInfo(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+            print('이름: {0} 나이: {1} 성별: {2}'.format(self.name, self.age, self.sex))
+
+
+    areum = Human()
+
+    areum.setInfo('아름', 25, '여')
+
+
+    # 정답
+    class Human:
+        def __init__(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+        def who(self):
+            print("이름: {} 나이: {} 성별: {}".format(self.name, self.age, self.sex))
+
+        def setInfo(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+
+    areum = Human("불명", "미상", "모름")
+    areum.who()  # Human.who(areum)
+
+    areum.setInfo("아름", 25, "여자")
+    areum.who()  # Human.who(areum)
+
+
+    # 259 클래스 소멸자
+    # 사람 (Human) 클래스에 '나의 죽음을 알리지 말라'를 출력하는 소멸자를 추가하세요
+
+    class Human:
+        def __init__(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+        def __del__(self):
+            print('나의 죽음을 알리지 말라')
+
+        def who(self):
+            print('이름: {0} 나이: {1} 성별: {2}'.format(self.name, self.age, self.sex))
+
+        def setInfo(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+
+    areum = Human('아름', 25, '여자')
+    del (areum)
+
+
+    # 260 에러의 원인
+    class OMG:
+        def print(self):
+            print("Oh my god")
+
+
+    mystock = OMG()
+    mystock.print()  # <- 이코드가 OMG.print(mystock)이 뜻인데 mystock이라는 인자가 들어가 있단 거잖아 근데 메소드 만들떄 괄호안에 self안 넣었잖아 그래서 에러 뜬거임 즉 print 메소드를 호출한 객체 즉 mystock가 인자로 넘어간다 그래서 print메소드에 괄호안에 self를 적어야한다
